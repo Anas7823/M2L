@@ -1,0 +1,12 @@
+.banner{
+    display: flex;
+    align-items: center;
+}
+
+.ProduitNav{
+    display: flex;
+}
+
+.elementNav{
+    padding: 20px;
+}
