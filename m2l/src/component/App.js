@@ -1,5 +1,6 @@
 import Banner from './Banner';
 import Footer from './Footer';
+import Accueil from './Accueil';
 import { useState } from 'react';
 
 import {
@@ -13,7 +14,7 @@ function App() {
     <div>
       <Banner/>
       <Routes>
-        <Route path="/">
+        <Route path="/"element={<Accueil/>}>
         </Route>
 
         <Route path="/Produit">
