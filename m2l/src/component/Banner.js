@@ -2,24 +2,33 @@ import '../style/Banner.css';
 import * as React from "react";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 function Banner(){
 	return <div className='banner'>
-        <Link to='/'>
-            <img src={``} alt="" className='logo'/>
-        </Link>
-        <h1>M2L</h1>
         <div className='ProduitNav'>
-            <Link to=''>
+            <Link to='/'>
+                <h1 className='elementNav'>M2L</h1>
+            </Link>
+            <Link to='/Produit'>
                 <h4 className='elementNav'>Produit</h4>
             </Link>
-            <Link to=''>
+            <Link to='/Panier'>
                 <h4 className='elementNav'>Panier</h4>
             </Link>
-            <Link to=''>
+            <Link to='/Contact'>
                 <h4 className='elementNav'> Contact </h4>
             </Link>
+            <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2 barreRecherche"
+              aria-label="Search"
+            />
+            <Button variant="outline-primary">Search</Button>
+          </Form>
             <Link to=''>
                 <div className='bouton'>
                     <Button variant="info">Connexion</Button>{' '}

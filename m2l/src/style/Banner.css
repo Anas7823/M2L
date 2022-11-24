@@ -21,5 +21,10 @@
 }
 
 .btn-info{
-    margin-left: 83rem;
+    margin-left: 20rem;
+}
+
+.barreRecherche{
+    width: 50rem !important;
+    margin-left: 5rem;
 }

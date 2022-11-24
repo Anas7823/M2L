@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,27 +10,21 @@ import '../style/Accueil.css';
 function Accueil(){
 return <div className='accueil'>
         <Card className="text-center">
-            <Card.Header>Featured</Card.Header>
+            <Card.Header>Bienvenue sur le site e-commerce de M2L</Card.Header>
                 <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
+                    <Card.Title>Information</Card.Title>
                     <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
+                        Notre site e-commerce est un site caritatif. 
+                        C'est-à-dire qu'aucun des revenus ne seront perçus par notre entreprise,
+                        Ils serviront de dons pour les personnes en nécessités
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Link to='/Produit'>
+                        <Button variant="primary">Produit</Button>
+                    </Link>
                 </Card.Body>
-            <Card.Footer className="text-muted">2 days ago</Card.Footer>
+            <Card.Footer className="text-muted"></Card.Footer>
     </Card>
     </div> 
 }
 
 export default Accueil;
-
-            // <div className='carousel-1'>
-            //     <div className='contenue'>
-            //         <h1>
-            //             <p>Bienvenue sur notre site e-commerce qui est un site caritatif.</p>
-            //             <p>C'est-à-dire qu'aucun des revenus ne seront perçus par notre entreprise</p>
-            //             <p>Ils serviront de dons pour les personnes en nécessités</p>
-            //         </h1>
-            //     </div>
-            // </div>

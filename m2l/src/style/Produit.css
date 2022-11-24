@@ -1,0 +1,27 @@
+.produit{
+    justify-content: center;
+}
+
+.carousel-inner{
+    height: 47rem;
+    width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    border-radius: 20px;
+
+}
+
+.titreProduit{
+    align-items: center;
+    text-align: center;
+    width: 70rem;
+    height: 10rem;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding-top: 3rem;
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}

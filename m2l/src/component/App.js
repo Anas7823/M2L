@@ -1,6 +1,7 @@
 import Banner from './Banner';
 import Footer from './Footer';
 import Accueil from './Accueil';
+import Produit from './Produit';
 import { useState } from 'react';
 
 import {
@@ -17,7 +18,7 @@ function App() {
         <Route path="/"element={<Accueil/>}>
         </Route>
 
-        <Route path="/Produit">
+        <Route path="/Produit" element={<Produit/>}>
         </Route>
 
         <Route path='/Produit/:idProduit'>
