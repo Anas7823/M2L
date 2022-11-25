@@ -2,26 +2,45 @@
     justify-content: center;
 }
 
-.carousel-inner{
+.titreProduit{
+    width: 70rem;
+    height: 10rem;
+    border-radius: 20px;
+    padding-top: 3rem;
+    margin: 50px;
+    margin-left: 10rem;
+}
+
+.carousel-inner{  /* Correspond au image qui défile */
     height: 47rem;
     width: 100rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5rem;
     border-radius: 20px;
-
+}
+.carousel-control-prev-icon{ /* Correspond a la flèche de gauche du carousel */
+    margin-right: -5rem ;
 }
 
-.titreProduit{
-    align-items: center;
-    text-align: center;
-    width: 70rem;
-    height: 10rem;
-    background-color: black;
-    color: white;
-    border-radius: 20px;
-    padding-top: 3rem;
-    margin: 50px;
+.carousel-control-next-icon{ /* Correspond a la flèche de droite du carousel */
+    margin-left: -5rem ;
+}
+
+.titreSquash{  /* Règle le titre car l'image est trop grande */
+    margin-top: -15rem;
+}
+
+.card-group{ /* ligne des 3 card */
+    width: 100rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5rem;
+}
+
+.card-img-top{ /* images des 3 card des meilleurs ventes */ 
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    height: 20rem;
 }
