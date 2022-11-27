@@ -1,10 +1,17 @@
 .pageProduit{
+    width: 90%;
+    padding-top: 7rem;
+    margin-left: auto;
     display: flex;
+    margin-bottom: 11.75rem;
 }
 
-.pageProduit .card{
-    margin-left: auto;
-    margin-right: auto;
+.contenueProduit{
+    justify-content: center;
+}
+
+.contenueProduit .card{
+    margin: 20px;
     width:350px;
     height:370px;
 }
@@ -16,7 +23,6 @@
 }
 
 .main-heading{
-    
     font-size:40px;
     color:red !important;
 }
