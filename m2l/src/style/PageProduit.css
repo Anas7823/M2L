@@ -2,7 +2,7 @@
     display: flex;
 }
 
-.card{
+.pageProduit .card{
     margin-left: auto;
     margin-right: auto;
     width:350px;
