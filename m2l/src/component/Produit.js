@@ -15,36 +15,44 @@ import raquetteSquash from "../assets/raquette-squash.jpg"
 
 import '../style/Produit.css';
 
-function Produit(){ 
+function Produit(props){ 
+const Sports = [
+  {
+    idProduit: 1,
+    nom: "BasketBall" , 
+    banniere: banniereBasketball,
+    numSlide: "First"
+  },
+  {
+    idProduit: 2,
+    nom: "FootBall" , 
+    banniere: banniereFootball,
+    numSlide: "Second"
+  },
+  {
+    idProduit: 3,
+    nom: "Squash" , 
+    banniere: banniereSquash,
+    numSlide: "Third"
+  },
+]
 
 return (<div className="produit">
-
     <div className="titreProduit">
         <h1>Articles trier par sport :</h1>
     </div>
-
-<Carousel>
-      <Carousel.Item>
-        <img className="d-block w-100" src={banniereBasketball} alt="First slide"/>
-        <Carousel.Caption>
-          <h3>Basketball</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={banniereFootball} alt="Second slide"/>
-
-        <Carousel.Caption>
-          <h3>Football</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={banniereSquash} alt="Third slide"/>
-
-        <Carousel.Caption>
-          <h3 className="titreSquash">Squash</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+      <Carousel>
+        {Sports.map((sport, index) => (
+          <Carousel.Item>
+            <Link to={"/produit/" + sport.idProduit}>
+                    <img className="d-block w-100" src={sport.banniere} alt={ sport.numSlide + " slide"}/>
+                    <Carousel.Caption>
+                      <h3>{sport.nom}</h3>
+                    </Carousel.Caption>
+            </Link>
+                  </Carousel.Item>
+            ))}
+      </Carousel>
 
     <div className="titreProduit">
         <h1>Liste des meilleurs ventes :</h1>
