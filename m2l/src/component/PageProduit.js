@@ -8,23 +8,27 @@ function Produit(props){
 const Produits = [
     {
         idProduit: 1,
-        nom: "test 1",
-        prix: "### $"
+        typeProduit:"Ballon",
+        nom: "NBA Team Tribute",
+        prix: "28.10€"
     },
     {
         idProduit: 2,
+        typeProduit:"Chaussure",
         nom: "test 2",
-        prix: "### $"
+        prix: "239.99€"
     },
     {
         idProduit: 3,
+        typeProduit:"Ballon",
         nom: "test 3",
-        prix: "### $"
+        prix: "### €"
     },
     {
         idProduit: 4,
+        typeProduit:"Ballon",
         nom: "test 4",
-        prix: "### $"
+        prix: "### €"
     }
 ]
 
@@ -39,10 +43,10 @@ return (<div className="pageProduit">
             <div class="card p-3">
                 <div class="d-flex justify-content-between align-items-center ">
                     <div class="mt-2">
-                        <h4 class="text-uppercase">{produit.nom}</h4>
+                        <h4 class="text-uppercase">{produit.typeProduit}</h4>
                         <div class="mt-5">
-                            <h5 class="text-uppercase mb-0">Blanda Matt</h5>
-                            <h1 class="main-heading mt-0">VASE</h1>
+                            <h5 class="text-uppercase mb-0">{produit.nom}</h5>
+                            <h1 class="main-heading mt-0">{produit.prix}</h1>
                             <div class="d-flex flex-row user-ratings">
                                 <div class="ratings">
                                 <i class="fa fa-star"></i>

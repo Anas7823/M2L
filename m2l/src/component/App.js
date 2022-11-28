@@ -15,6 +15,7 @@ function App() {
     
     <div>
       <Banner/>
+
       <Routes>
         <Route path="/"element={<Accueil/>}>
         </Route>
@@ -37,7 +38,6 @@ function App() {
         <Route path="Mentions-legales">
         </Route>
 
-        
       </Routes>
       
       <Footer/>
