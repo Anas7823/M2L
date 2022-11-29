@@ -50,7 +50,7 @@ return (<div className="produit">
                       <h3>{sport.nom}</h3>
                     </Carousel.Caption>
             </Link>
-                  </Carousel.Item>
+          </Carousel.Item>
             ))}
       </Carousel>
 

@@ -27,10 +27,6 @@
     margin-left: -5rem ;
 }
 
-.titreSquash{  /* Règle le titre car l'image est trop grande */
-    margin-top: -15rem;
-}
-
 .card-group{ /* ligne des 3 card */
     width: 100rem;
     margin-left: auto;
