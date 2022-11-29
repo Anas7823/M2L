@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Accueil from './Accueil';
 import Produit from './Produit';
 import PageProduit from './PageProduit';
+import Panier from './Panier'
 import { useState } from 'react';
 
 import {
@@ -26,7 +27,7 @@ function App() {
         <Route path='/Produit/:idProduit' element={<PageProduit/>}>
         </Route>
 
-        <Route path='/Panier'>
+        <Route path='/Panier' element={<Panier/>}>
         </Route>
         
         <Route path='/Mon-compte'>
