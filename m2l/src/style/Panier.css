@@ -1,19 +1,19 @@
-/* Feuille de styles */
+.panier{
+    min-height: 100vh;
+    margin-top: 10vh;
+}
 p{
-    text-align: justify ;
-}
-.img_principal{
-    text-align: center;
-}
-.miniature:hover{
-    border: 6px solid #ddd;
-    
-}
-.droite{
-    text-align: right;
+    text-align: justify;
 }
 
-.avis_img{
-    float: left;
-    margin-right: 1em;
+.produitPanier{
+    width: 80vw;
+    height: 25vh;
+    border: 1px solid red ;
+}
+
+.nom{
+    border: 1px solid navy;
+    width: 20rem;
+    height: 100%;   
 }

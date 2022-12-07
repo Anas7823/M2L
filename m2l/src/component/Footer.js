@@ -8,8 +8,8 @@ function Footer(){
                 Compléments d'informations :
             </h4>
             <ul className="liste">
-                <li> numéro : </li>
-                <li> site officiel: IPSSI</li>
+                <li> numéro : 01 32 45 76 90</li>
+                <li> site officiel: M2L</li>
                 <Link to='/MentionsLegal'>
                     <li> all right reserved</li>
                 </Link>
