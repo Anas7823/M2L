@@ -43,10 +43,10 @@ return (<div className="pageProduit">
             <div class="card p-3">
                 <div class="d-flex justify-content-between align-items-center ">
                     <div class="mt-2">
-                        <h4 class="text-uppercase">{produit.typeProduit}</h4>
+                        <h4 class="text-uppercase" id="sport">{produit.typeProduit}</h4>
                         <div class="mt-5">
-                            <h5 class="text-uppercase mb-0">{produit.nom}</h5>
-                            <h1 class="main-heading mt-0">{produit.prix}</h1>
+                            <h5 class="text-uppercase mb-0" id="nom">{produit.nom}</h5>
+                            <h1 class="main-heading mt-0" id="prix">{produit.prix}</h1>
                             <div class="d-flex flex-row user-ratings">
                                 <div class="ratings">
                                 <i class="fa fa-star"></i>
@@ -54,7 +54,7 @@ return (<div className="pageProduit">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 </div>
-                                <h6 class="text-muted ml-1">4/5</h6>
+                                <h6 class="text-muted ml-1"id="stock">4/5</h6>
                             </div>
                         </div>
                     </div>
