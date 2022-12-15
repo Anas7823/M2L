@@ -1,0 +1,29 @@
+.Inscription{
+    height: 100vh;
+    border: 1px solid red;
+}
+
+.connexion{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 90%;
+}
+
+.nomPrenom{
+    display: flex;
+    font-size: 25px;
+}
+
+input{
+    margin: 2rem;
+    width: 20rem;
+}
+
+#name{
+    width: 50rem;
+}
+
+#firstname{
+    width: 50rem;
+}

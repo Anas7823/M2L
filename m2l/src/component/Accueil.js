@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/Accueil.css';
 
 
-
 function Accueil(){
 return <div className='accueil'>
         <Card className="text-center">

@@ -4,6 +4,7 @@ import Accueil from './Accueil';
 import Produit from './Produit';
 import PageProduit from './PageProduit';
 import Panier from './Panier'
+import Inscription from './Inscription';
 import { useState } from 'react';
 
 import {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         
         <Route path='/Mon-compte'>
+        </Route>
+        
+        <Route path='/Inscription' element={<Inscription/>}>
         </Route>
 
         <Route path='/Contact'>

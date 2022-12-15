@@ -66,11 +66,17 @@ function Banner(){
           </Form>
         </Modal.Body>
         <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          <Link to='/Inscription'>
+            Inscription
+          </Link>
+          </Button>
+
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Connexion
           </Button>
         </Modal.Footer>
       </Modal>    
