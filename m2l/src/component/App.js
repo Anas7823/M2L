@@ -3,7 +3,6 @@ import Footer from './Footer';
 import Accueil from './Accueil';
 import Produit from './Produit';
 import PageProduit from './PageProduit';
-import Contact from './Contact';
 import Panier from './Panier'
 import Inscription from './Inscription';
 import { useState } from 'react';

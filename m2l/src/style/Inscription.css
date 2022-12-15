@@ -2,22 +2,10 @@
     height: 100vh;
 }
 
-.connexion{
+.formulaire{
+    width: 90%;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    width: 90%;
-}
-
-.nomPrenom{
-    display: flex;
-    font-size: 25px;
-}
-
-#name{
-    width: 50rem;
-}
-
-#firstname{
-    width: 50rem;
+    /* border: rgb(255, 0, 0) 1px solid; */
 }
