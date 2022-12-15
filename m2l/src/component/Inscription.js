@@ -10,9 +10,9 @@ function Inscription(){
 
             <Form.Group className="mb-3" controlId="nom">
                 <Form.Label>Nom du compte</Form.Label>
-                <Form.Control type="text" placeholder="Entrer votre Nom" />
+                <Form.Control type="text" placeholder="Entrer votre Nom/Pseudo" />
                 <Form.Text className="text-muted">
-                    Nous ne partagerons jamais vos informations avec quelqu'un d'autre.
+                    Nous ne partagerons jamais vos informations avec quelqu'un d'autre sans votre consentement.
                 </Form.Text>
             </Form.Group>
 
@@ -20,17 +20,15 @@ function Inscription(){
                 <Form.Label>Adresse mail</Form.Label>
                 <Form.Control type="email" placeholder="Entrer votre adresse mail" />
                 <Form.Text className="text-muted">
-                    Nous ne partagerons jamais vos informations avec quelqu'un d'autre.
+                    Nous ne partagerons jamais vos informations avec quelqu'un d'autre sans votre consentement.
                 </Form.Text>
             </Form.Group>
 
         <Form.Group className="mb-3" controlId="mdp">
             <Form.Label>Mot-de-passe</Form.Label>
-            <Form.Control type="password" placeholder="mot-de-passe" />
+            <Form.Control type="password" placeholder="mot-de-passe"/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+        
         <Button variant="primary" type="submit">
             Valider
         </Button>
