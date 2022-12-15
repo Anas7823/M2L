@@ -1,6 +1,5 @@
 .Inscription{
     height: 100vh;
-    border: 1px solid red;
 }
 
 .connexion{
@@ -13,11 +12,6 @@
 .nomPrenom{
     display: flex;
     font-size: 25px;
-}
-
-input{
-    margin: 2rem;
-    width: 20rem;
 }
 
 #name{
