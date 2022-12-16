@@ -5,6 +5,7 @@ import Sports from './Sports';
 import PageProduit from './PageProduit';
 import Panier from './Panier'
 import Inscription from './Inscription';
+import AdminUser from './AdminUser'
 import { useState } from 'react';
 
 import {
@@ -19,6 +20,10 @@ function App() {
       <Banner/>
 
       <Routes>
+
+        <Route path='/Administration' element={<AdminUser/>}>
+        </Route>
+        
         <Route path="/"element={<Accueil/>}>
         </Route>
 
