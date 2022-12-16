@@ -3,6 +3,7 @@
 }
 .toutArticles{
     display: flex;
+    margin-left: 20rem;
 }
 .titreProduit{
     display: block;
@@ -12,7 +13,9 @@
     margin: 50px;
     margin-left: 10rem;
 }
-
+.imgCaroussel{
+    justify-content: center;
+}
 .carousel-inner{  /* Correspond au image qui défile */
     height: 25rem;
     width: 100rem;

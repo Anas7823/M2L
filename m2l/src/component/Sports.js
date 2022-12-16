@@ -36,25 +36,7 @@ const Sports = [
     nom: "Squash" , 
     banniere: banniereSquash,
     numSlide: "Third"
-  },
-  {
-    idProduit: 4,
-    nom: "Squash" , 
-    banniere: banniereSquash,
-    numSlide: "Third"
-  },
-  {
-    idProduit: 3,
-    nom: "Squash" , 
-    banniere: banniereSquash,
-    numSlide: "Third"
-  },
-  {
-    idProduit: 3,
-    nom: "Squash" , 
-    banniere: banniereSquash,
-    numSlide: "Third"
-  },
+  }
 ]
 
 return (<div className="produit">
@@ -65,7 +47,9 @@ return (<div className="produit">
         {Sports.map((sport, index) => (
           <Carousel.Item>
             <Link to={"/produit/" + sport.idProduit}>
+              <div className="imgCaroussel">
                     <img className="d-block w-100" src={sport.banniere} alt={ sport.numSlide + " slide"}/>
+              </div>
                     <Carousel.Caption>
                       <h3>{sport.nom}</h3>
                     </Carousel.Caption>
@@ -122,12 +106,12 @@ return (<div className="produit">
     </div>
 
     <div className="toutArticles">
-    <CardGroup>
-      {Sports.map((sport, index) => (
-        <CardProduit produit={sport}/>
-      ))}   
-    </CardGroup>
-</div>
+      <CardGroup>
+        {Sports.map((sport, index) => (
+          <CardProduit produit={sport}/>
+        ))}   
+      </CardGroup>
+    </div>
           
 </div>
 )};
