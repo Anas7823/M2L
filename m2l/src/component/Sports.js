@@ -37,6 +37,24 @@ const Sports = [
     banniere: banniereSquash,
     numSlide: "Third"
   },
+  {
+    idProduit: 4,
+    nom: "Squash" , 
+    banniere: banniereSquash,
+    numSlide: "Third"
+  },
+  {
+    idProduit: 3,
+    nom: "Squash" , 
+    banniere: banniereSquash,
+    numSlide: "Third"
+  },
+  {
+    idProduit: 3,
+    nom: "Squash" , 
+    banniere: banniereSquash,
+    numSlide: "Third"
+  },
 ]
 
 return (<div className="produit">
@@ -104,9 +122,11 @@ return (<div className="produit">
     </div>
 
     <div className="toutArticles">
-    {Sports.map((sport, index) => (
-      <CardProduit produit={sport}/>
-))}   
+    <CardGroup>
+      {Sports.map((sport, index) => (
+        <CardProduit produit={sport}/>
+      ))}   
+    </CardGroup>
 </div>
           
 </div>

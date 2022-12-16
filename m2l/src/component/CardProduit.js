@@ -4,9 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 import '../style/CardProduit.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 import image from "../assets/ballon-de-basket.jpg"
 
 
@@ -21,9 +18,7 @@ function CardProduit({produit}){
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">
-                    <FontAwesomeIcon icon="fa-solid fa--shopping" />
-                </Button>
+                <Button variant="primary" className="btn-produit"></Button>
                 </Card.Body>
             </Card>
         </div>
