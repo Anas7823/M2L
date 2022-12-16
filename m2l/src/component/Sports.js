@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import React from "react";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
@@ -13,9 +25,9 @@ import ballonFoot from "../assets/ballon-de-foot.jpg"
 import ballonBasket from "../assets/ballon-de-basket.jpg"
 import raquetteSquash from "../assets/raquette-squash.jpg"
 
-import '../style/Produit.css';
+import '../style/Sports.css';
 
-function Produit(props){ 
+function Sports(props){ 
 const Sports = [
   {
     idProduit: 1,
@@ -96,7 +108,52 @@ return (<div className="produit">
         </Card.Footer>
       </Card>
     </CardGroup>
+
+    <div className="titreProduit">
+        <h1>Listes de tout les articles :</h1>
+    </div>
+
+    {Sports.map((sport, index) => (
+      <MDBContainer fluid className="my-5">
+        <MDBRow className="justify-content-center">
+          <MDBCol md="3">
+            <MDBCard className="text-black">
+              <MDBCardImage
+                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp"
+                position="top"
+                alt="Apple Computer"
+              />
+              <MDBCardBody>
+                <div className="text-center">
+                  <MDBCardTitle>{Sports.nom}</MDBCardTitle>
+                  <p className="text-muted mb-4">Apple pro display XDR</p>
+                </div>
+                <div>
+                  <div className="d-flex justify-content-between">
+                    <span>Pro Display XDR</span>
+                    <span>$5,999</span>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <span>Pro stand</span>
+                    <span>$999</span>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <span>Vesa Mount Adapter</span>
+                    <span>$199</span>
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between total font-weight-bold mt-4">
+                  <span>Total</span>
+                  <span>$7,197.00</span>
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    ))}   
+          
 </div>
 )};
 
-export default Produit
+export default Sports
