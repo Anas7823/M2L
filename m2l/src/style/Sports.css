@@ -1,7 +1,9 @@
 .produit{
     justify-content: center;
 }
-
+.toutArticles{
+    display: flex;
+}
 .titreProduit{
     display: block;
     height: 5rem;

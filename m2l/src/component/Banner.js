@@ -19,7 +19,7 @@ function Banner(){
             <Link to='/'>
                 <h1 className='elementNav'>M2L</h1>
             </Link>
-            <Link to='/Produit'>
+            <Link to='/Sports'>
                 <h4 className='elementNav'>Produit</h4>
             </Link>
             <Link to='/Panier'>
