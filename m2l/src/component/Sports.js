@@ -13,6 +13,9 @@ import ballonFoot from "../assets/ballon-de-foot.jpg"
 import ballonBasket from "../assets/ballon-de-basket.jpg"
 import raquetteSquash from "../assets/raquette-squash.jpg"
 
+import axios from "axios";
+import React, { useState} from "react";
+
 import '../style/Sports.css';
 
 import CardProduit from "../component/CardProduit.js"
@@ -38,6 +41,14 @@ const Sports = [
     numSlide: "Third"
   }
 ]
+const [Produits,setProduits] = useState([]);
+async function getProduit(){
+  let res = await axios.get('http://localhost:8000/sports')
+  console.log(res.data)
+  setProduits(res.data)
+}
+
+getProduit()
 
 return (<div className="produit">
     <div className="titreProduit">
@@ -63,42 +74,21 @@ return (<div className="produit">
     </div>
 
     <CardGroup>
+      {Produits.map((produit) =>(
       <Card>
         <Card.Img variant="top" src={ballonFoot} />
         <Card.Body>
-          <Card.Title>Ballon de foot: Champions league CNSTZX®</Card.Title>
+          <Card.Title>{produit.NomProduit}</Card.Title>
           <Card.Text>
-            <h4>Coût: 42 €</h4>
+            <h4>Coût: {produit.PrixProduit} €</h4>
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card>
-        <Card.Img variant="top" src={ballonBasket} />
-        <Card.Body>
-          <Card.Title>Ballon de basquette: NBA Team Tribute</Card.Title>
-          <Card.Text>
-            <h4>Coût: 28.10€</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src={raquetteSquash} />
-        <Card.Body>
-          <Card.Title>Raquette de squash: Prince Hyper Pro 550</Card.Title>
-          <Card.Text>
-            <h4>Coût: 157.60 €</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
+      ))}
+      
     </CardGroup>
 
     <div className="titreProduit">

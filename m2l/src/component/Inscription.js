@@ -1,11 +1,23 @@
 import '../style/Inscription.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from "axios";
 
 function Inscription(){
+    const Valider = async (e)=>{
+        e.preventDefault()
+        console.log(e.target)
+        let res = await axios.post(`http://localhost:8000/utilisateur`, {
+          nom : e.target[0].value,
+          mdp : e.target[3].value,
+          mail : e.target[1].value,
+          adress : e.target[2].value
+        });
+      }
+
     return <div className="Inscription">
 
-        <div className='formulaire'>                
+        <form className='formulaire' onSubmit={Valider}>                
             <h1>Création d'un compte</h1>
 
         <Form.Group className="mb-3" controlId="nom">
@@ -44,7 +56,7 @@ function Inscription(){
             Valider
         </Button>
 
-      </div>
+      </form>
     </div>
 
 }
