@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Panier(){
   return( 
-    <div className="panier">     
+    <div className="panier">    
       <div className='produitPanier'>
         <div className='img' style={{backgroundImage: `url${img}`}}>
           <img src={img}></img>
@@ -17,11 +17,24 @@ function Panier(){
           <br/>
           <br/>
           <br/>
-          <div className='achat'>
-            <h3>Prix: 33€</h3> <Button variant="dark">Acheter</Button>
+          <div className='infoAchat'>
+            <h3>Prix: 33€</h3> <Button variant="danger">Supprimer</Button>
           </div>
         </div>
       </div>
+      
+      <div className='achat'>
+        <h1>Total:</h1>
+        <p> <h5> NomProduit:  33€</h5></p>
+
+        <hr/>
+        <hr/>
+        <div>
+          <h3>Prix Total: 33€</h3>
+        </div>
+        <Button variant="success">Acheter</Button>
+      </div> 
+
     </div>
     )
   }
