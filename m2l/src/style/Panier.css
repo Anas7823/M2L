@@ -1,7 +1,7 @@
 .panier{
     min-height: 100vh;
-    margin-top: 10vh;
-    display: flex;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
 }
 p{
     text-align: justify;
@@ -21,6 +21,7 @@ p{
     border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 20px;
 }
 
 .panierNomProduit{
@@ -50,7 +51,10 @@ p{
 }
 
 .achat{
-    margin-right: 4rem;
+    z-index: 1;
+    position: fixed;
+    margin-left: 80%;
+    margin-top: -62.5rem;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -58,8 +62,8 @@ p{
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 10px;
-    width: 15vw;
-    height: 30vh;
+    min-width: 15vw;
+    max-width: 18vw;
 }
 
 .achat > button {
