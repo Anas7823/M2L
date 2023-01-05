@@ -9,7 +9,7 @@ p{
 
 .produitPanier{
     display: flex;
-    width: 60vw;
+    width: 58vw;
     height: 25vh;
         /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
@@ -23,7 +23,7 @@ p{
     margin-left: auto;
 }
 
-.produit{
+.panierNomProduit{
     padding: 5px;
     width: 80%;
 }
@@ -51,7 +51,6 @@ p{
 
 .achat{
     margin-right: 4rem;
-    /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

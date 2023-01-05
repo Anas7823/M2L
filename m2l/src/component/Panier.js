@@ -4,13 +4,13 @@ import img from '../assets/foot/F100_RESIST_1.avif'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Panier(){
-  return( 
+  return(
     <div className="panier">    
       <div className='produitPanier'>
         <div className='img' style={{backgroundImage: `url${img}`}}>
           <img src={img}></img>
         </div>
-        <div className='produit'>
+          <div className='panierNomProduit'>
           <h1>Nom produit</h1>
           <p>Nom du vendeur</p>
 
