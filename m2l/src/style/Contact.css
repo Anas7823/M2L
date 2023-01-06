@@ -1,0 +1,41 @@
+.Contact{
+    width: 100%;
+    height: 100%;
+}
+
+.dark .Titre-contact{
+    color: rgb(255, 255, 255);
+}
+
+.dark .Element-contact{
+    color: rgb(255, 255, 255);
+}
+
+.Element-contact{
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    display: flex;
+    padding: 50px;
+}
+
+.Element-contact1{
+    display: flex;
+    align-items: center;
+    padding-right: 200px;
+}
+
+.Element-contact2{
+    display: flex;
+    align-items: center;
+    padding-left: 200px;
+}
+
+.iframe{
+    height: 22rem;
+}
+
+.myFrame{
+    height: 100%;
+    width: 99.8%;
+}
