@@ -1,24 +1,30 @@
 .produit{
     justify-content: center;
 }
-
+.toutArticles{
+    display: flex;
+    margin-left: 20rem;
+}
 .titreProduit{
-    width: 70rem;
-    height: 10rem;
+    display: block;
+    height: 5rem;
     border-radius: 20px;
-    padding-top: 3rem;
+    padding-top: 1rem;
     margin: 50px;
     margin-left: 10rem;
 }
-
+.imgCaroussel{
+    justify-content: center;
+}
 .carousel-inner{  /* Correspond au image qui défile */
-    height: 47rem;
+    height: 25rem;
     width: 100rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 5vh;
     border-radius: 20px;
 }
+
 .carousel-control-prev-icon{ /* Correspond a la flèche de gauche du carousel */
     margin-right: -5rem ;
 }

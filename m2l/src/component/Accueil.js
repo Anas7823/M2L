@@ -17,7 +17,7 @@ return <div className='accueil'>
                         C'est-à-dire qu'aucun des revenus ne seront perçus par notre entreprise,
                         Ils serviront de dons pour les personnes en nécessités
                     </Card.Text>
-                    <Link to='/Produit'>
+                    <Link to='/Sports'>
                         <Button variant="primary" className="btnProduit">Produit</Button>
                     </Link>
                 </Card.Body>

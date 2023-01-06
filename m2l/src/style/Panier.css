@@ -1,19 +1,73 @@
 .panier{
     min-height: 100vh;
-    margin-top: 10vh;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
 }
 p{
     text-align: justify;
 }
 
 .produitPanier{
-    width: 80vw;
+    display: flex;
+    width: 58vw;
     height: 25vh;
-    border: 1px solid red ;
+        /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
 }
 
-.nom{
-    border: 1px solid navy;
-    width: 20rem;
-    height: 100%;   
+.panierNomProduit{
+    padding: 5px;
+    width: 80%;
+}
+
+.img{
+    /* border: 1px solid navy;   */
+    width:20%;
+    height: 100%; 
+}
+
+.img > img{
+    width: 100%;
+    height: 100%;  
+    border-radius: 20px;
+}
+
+.infoAchat{
+    display: flex;
+
+}
+
+.infoAchat > button{
+    margin-left: 40rem;
+}
+
+.achat{
+    z-index: 1;
+    position: fixed;
+    margin-left: 80%;
+    margin-top: -62.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    min-width: 15vw;
+    max-width: 18vw;
+}
+
+.achat > button {
+    margin-left: 5rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

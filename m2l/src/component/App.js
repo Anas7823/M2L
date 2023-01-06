@@ -1,11 +1,12 @@
 import Banner from './Banner';
 import Footer from './Footer';
 import Accueil from './Accueil';
-import Produit from './Produit';
+import Sports from './Sports';
 import PageProduit from './PageProduit';
 import Contact from "./Contact"
 import Panier from './Panier'
 import Inscription from './Inscription';
+import AdminUser from './AdminUser'
 import { useState } from 'react';
 
 import {
@@ -20,10 +21,14 @@ function App() {
       <Banner/>
 
       <Routes>
+
+        <Route path='/Administration' element={<AdminUser/>}>
+        </Route>
+        
         <Route path="/"element={<Accueil/>}>
         </Route>
 
-        <Route path="/Produit" element={<Produit/>}>
+        <Route path="/Sports" element={<Sports/>}>
         </Route>
 
         <Route path='/Produit/:idProduit' element={<PageProduit/>}>

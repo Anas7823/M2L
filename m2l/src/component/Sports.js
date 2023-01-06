@@ -13,9 +13,14 @@ import ballonFoot from "../assets/ballon-de-foot.jpg"
 import ballonBasket from "../assets/ballon-de-basket.jpg"
 import raquetteSquash from "../assets/raquette-squash.jpg"
 
-import '../style/Produit.css';
+import axios from "axios";
+import React, { useState} from "react";
 
-function Produit(props){ 
+import '../style/Sports.css';
+
+import CardProduit from "../component/CardProduit.js"
+
+function Sports(){ 
 const Sports = [
   {
     idProduit: 1,
@@ -34,8 +39,16 @@ const Sports = [
     nom: "Squash" , 
     banniere: banniereSquash,
     numSlide: "Third"
-  },
+  }
 ]
+const [Produits,setProduits] = useState([]);
+async function getProduit(){
+  let res = await axios.get('http://localhost:8000/sports')
+  console.log(res.data)
+  setProduits(res.data)
+}
+
+getProduit()
 
 return (<div className="produit">
     <div className="titreProduit">
@@ -45,7 +58,9 @@ return (<div className="produit">
         {Sports.map((sport, index) => (
           <Carousel.Item>
             <Link to={"/produit/" + sport.idProduit}>
+              <div className="imgCaroussel">
                     <img className="d-block w-100" src={sport.banniere} alt={ sport.numSlide + " slide"}/>
+              </div>
                     <Carousel.Caption>
                       <h3>{sport.nom}</h3>
                     </Carousel.Caption>
@@ -59,44 +74,36 @@ return (<div className="produit">
     </div>
 
     <CardGroup>
+      {Produits.map((produit) =>(
       <Card>
         <Card.Img variant="top" src={ballonFoot} />
         <Card.Body>
-          <Card.Title>Ballon de foot: Champions league CNSTZX®</Card.Title>
+          <Card.Title>{produit.NomProduit}</Card.Title>
           <Card.Text>
-            <h4>Coût: 42 €</h4>
+            <h4>Coût: {produit.PrixProduit} €</h4>
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
-      <Card>
-        <Card.Img variant="top" src={ballonBasket} />
-        <Card.Body>
-          <Card.Title>Ballon de basquette: NBA Team Tribute</Card.Title>
-          <Card.Text>
-            <h4>Coût: 28.10€</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src={raquetteSquash} />
-        <Card.Body>
-          <Card.Title>Raquette de squash: Prince Hyper Pro 550</Card.Title>
-          <Card.Text>
-            <h4>Coût: 157.60 €</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
+      ))}
+      
     </CardGroup>
+
+    <div className="titreProduit">
+        <h1>Listes de tout les articles :</h1>
+    </div>
+
+    <div className="toutArticles">
+      <CardGroup>
+        {Sports.map((sport, index) => (
+          <CardProduit produit={sport}/>
+        ))}   
+      </CardGroup>
+    </div>
+          
 </div>
 )};
 
-export default Produit
+export default Sports
