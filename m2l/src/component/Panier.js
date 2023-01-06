@@ -84,20 +84,25 @@ function Panier(){
   }
   
 async function Total(){
-  const attendre = await Panier()
-  const prixPanier = document.querySelector(".prix-total");
-    
-  const articles = document.querySelectorAll(".produitPanier");
-
-  // créer la fonction pour pouvoir l'utiliser quand on veut !
-  const reloadDesPrix =  () => {
+  // const MyFunctionnalComponent: React.FC = (props) => {
+  //   useEffect(async () => {
+  //    await loadContent();
+  //   }, []);
+     
+     const attendre = await Panier()
+     const prixPanier = document.querySelector(".prix-total");
+     
+     const articles = document.querySelectorAll(".produitPanier");
+     
+     // créer la fonction pour pouvoir l'utiliser quand on veut !
+     const reloadDesPrix =  () => {
     prixPanier.innerText=0;
     articles.forEach((article) => {
     const price = article.querySelector(".infoAchat > h4 > b").innerText;
     console.log(price);
   })
-  }
-  reloadDesPrix() 
+}
+reloadDesPrix() 
 }
 Total()
 

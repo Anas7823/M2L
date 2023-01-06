@@ -4,7 +4,7 @@ import '../style/PageProduit.css';
 import { useParams } from 'react-router-dom';
 
 
-function Produit(props){ 
+function Produit(props){
 const Produits = [
     {
         idProduit: 1,
@@ -72,7 +72,7 @@ return (<div className="pageProduit">
                     </div>
         </div>
         <p>A great option weather you are at office or at home. </p>
-        <button class="btn btn-danger">Add to cart</button>
+        <button class="btn btn-primary">Add to cart</button>
     </div>
 
             </div>
