@@ -11,7 +11,7 @@ p{
     display: flex;
     width: 58vw;
     height: 25vh;
-        /* From https://css.glass */
+    /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,6 @@ p{
 }
 
 .img{
-    /* border: 1px solid navy;   */
     width:20%;
     height: 100%; 
 }

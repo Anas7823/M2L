@@ -5,7 +5,9 @@
     background-color: black;
     width: 100%;
 }
-
+.m2lLogo{
+    height: 95px;
+}
 .ProduitNav{
     display: flex;
     align-items: center;

@@ -72,8 +72,7 @@ function Panier(){
 
         <hr/>
         <div>
-          <h3 className='prix-total'>Prix Total:
-             {}€
+          <h3 className='prix-total'>Prix Total:{}€
           </h3>
         </div>
         <Button variant="success">Acheter</Button>
@@ -81,29 +80,26 @@ function Panier(){
 
     </div>
     )
-  }
+    async function Total(){
+      try{
+        const attendre = await Panier()
+        const prixPanier = document.querySelector(".prix-total");
+        const articles = document.querySelectorAll(".produitPanier");
+        
+        // créer la fonction pour pouvoir l'utiliser quand on veut !
+        const reloadDesPrix =  () => {
+          prixPanier.innerText=0;
+          articles.forEach((article) => {
+            const price = article.querySelector(".infoAchat > h4 > b").innerText;
+            console.log(price);
+          })
+        }
+        reloadDesPrix() 
+      } catch (error) {
+        console.error(error);
+      }}
+      Total()
+    }
   
-async function Total(){
-  // const MyFunctionnalComponent: React.FC = (props) => {
-  //   useEffect(async () => {
-  //    await loadContent();
-  //   }, []);
-     
-     const attendre = await Panier()
-     const prixPanier = document.querySelector(".prix-total");
-     
-     const articles = document.querySelectorAll(".produitPanier");
-     
-     // créer la fonction pour pouvoir l'utiliser quand on veut !
-     const reloadDesPrix =  () => {
-    prixPanier.innerText=0;
-    articles.forEach((article) => {
-    const price = article.querySelector(".infoAchat > h4 > b").innerText;
-    console.log(price);
-  })
-}
-reloadDesPrix() 
-}
-Total()
 
-  export default Panier;
+export default Panier;

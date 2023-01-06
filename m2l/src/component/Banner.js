@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-
+import m2lLogo from '../assets/m2l-logo.jpeg';
 
 function Banner(){
 
@@ -17,7 +17,7 @@ function Banner(){
 	return <div className='banner'>
         <div className='ProduitNav'>
             <Link to='/'>
-                <h1 className='elementNav'>M2L</h1>
+                <img title="M2L" className='elementNav m2lLogo' src={m2lLogo}></img>
             </Link>
             <Link to='/Sports'>
                 <h4 className='elementNav'>Produit</h4>
