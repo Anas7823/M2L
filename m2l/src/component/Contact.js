@@ -1,5 +1,4 @@
 import '../style/Contact.css';
-import { Link } from "react-router-dom";
 import telephone from "../assets/telephone.gif"
 import mail from "../assets/mail.gif"
 

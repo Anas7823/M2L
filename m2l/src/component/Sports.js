@@ -62,7 +62,7 @@ return (<div className="produit">
           <Carousel.Item>
             <Link to={"/produit/" + sport.idProduit}>
               <div className="imgCaroussel">
-                    <img className="d-block w-100" src={sport.banniere} alt={ sport.numSlide + " slide"}/>
+                    <img className="d-block w-100" style={{ background: `no-repeat url(${sport.banniere})`, height:'250vh' }}/> {/*bug d'image*/}
               </div>
                     <Carousel.Caption>
                       <h3>{sport.nom}</h3>
