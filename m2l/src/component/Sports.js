@@ -26,19 +26,22 @@ const Sports = [
     idProduit: 1,
     nom: "BasketBall" , 
     banniere: banniereBasketball,
-    numSlide: "First"
+    numSlide: "First",
+    prix: 33,
   },
   {
     idProduit: 2,
     nom: "FootBall" , 
     banniere: banniereFootball,
-    numSlide: "Second"
+    numSlide: "Second",
+    prix: 33,
   },
   {
     idProduit: 3,
     nom: "Squash" , 
     banniere: banniereSquash,
-    numSlide: "Third"
+    numSlide: "Third",
+    prix: 33,
   }
 ]
 const [Produits,setProduits] = useState([]);
@@ -73,7 +76,7 @@ return (<div className="produit">
         <h1>Liste des meilleurs ventes :</h1>
     </div>
 
-    <CardGroup>
+    {/* <CardGroup> CODE QUI VA AVEC LA BDD
       {Produits.map((produit) =>(
       <Card>
         <Card.Img variant="top" src={ballonFoot} />
@@ -89,19 +92,45 @@ return (<div className="produit">
       </Card>
       ))}
       
+    </CardGroup> */}
+
+  <CardGroup>
+      {Sports.map((produit) =>(
+      <Card>
+        <Card.Img variant="top" src={ballonFoot} />
+        <Card.Body>
+          <Card.Title>{produit.nom}</Card.Title>
+          <Card.Text>
+            <h4>Coût: {produit.prix} €</h4>
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer>
+          <small className="text-muted">Last updated 3 mins ago</small>
+        </Card.Footer>
+      </Card>
+      ))}
+      
     </CardGroup>
 
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
     </div>
 
-    <div className="toutArticles">
+    {/* <div className="toutArticles"> CODE QUI VA AVEC LA BDD
       <CardGroup>
+        {Produits.map((produit, index) => (
+          <CardProduit produit={produit}/>
+        ))}   
+      </CardGroup>
+    </div> */}
+
+    <div className="toutArticles">
+    <CardGroup>
         {Sports.map((sport, index) => (
           <CardProduit produit={sport}/>
         ))}   
       </CardGroup>
-    </div>
+    </div>  
           
 </div>
 )};
