@@ -24,7 +24,7 @@ function Sports(){
 const Sports = [
   {
     idProduit: 1,
-    nom: "BasketBall" , 
+    nom: "BasketBall", 
     banniere: banniereBasketball,
     numSlide: "First",
     prix: 33,
@@ -38,7 +38,7 @@ const Sports = [
   },
   {
     idProduit: 3,
-    nom: "Squash" , 
+    nom: "Squash", 
     banniere: banniereSquash,
     numSlide: "Third",
     prix: 33,
@@ -76,7 +76,7 @@ return (<div className="produit">
         <h1>Liste des meilleurs ventes :</h1>
     </div>
 
-    {/* <CardGroup> CODE QUI VA AVEC LA BDD
+    <CardGroup> 
       {Produits.map((produit) =>(
       <Card>
         <Card.Img variant="top" src={ballonFoot} />
@@ -92,9 +92,9 @@ return (<div className="produit">
       </Card>
       ))}
       
-    </CardGroup> */}
+    </CardGroup>
 
-  <CardGroup>
+  {/* <CardGroup>
       {Sports.map((produit) =>(
       <Card>
         <Card.Img variant="top" src={ballonFoot} />
@@ -114,23 +114,31 @@ return (<div className="produit">
 
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
-    </div>
-
-    {/* <div className="toutArticles"> CODE QUI VA AVEC LA BDD
-      <CardGroup>
-        {Produits.map((produit, index) => (
-          <CardProduit produit={produit}/>
-        ))}   
-      </CardGroup>
     </div> */}
 
-    <div className="toutArticles">
+    <div className="toutArticles"> 
+      <CardGroup>
+        {Produits.map((produit, index) => (
+          <Card>
+          <Card.Img variant="top" src={ballonFoot} />
+          <Card.Body>
+            <Card.Title>{produit.NomProduit}</Card.Title>
+            <Card.Text>
+              <h4>Coût: {produit.PrixProduit} €</h4>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        ))}   
+      </CardGroup>
+    </div>
+
+    {/* <div className="toutArticles">
     <CardGroup>
         {Sports.map((sport, index) => (
           <CardProduit produit={sport}/>
         ))}   
       </CardGroup>
-    </div>  
+    </div>   */}
           
 </div>
 )};

@@ -2,9 +2,15 @@
     justify-content: center;
 }
 .toutArticles{
-    display: flex;
+    border: 1px solid red;
     margin-left: 20rem;
-}
+    display: flex;
+    flex-wrap: wrap;
+      
+    }
+.card {
+    flex: 1 0 25%;
+}    
 .titreProduit{
     display: block;
     height: 5rem;
