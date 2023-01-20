@@ -6,9 +6,8 @@ import PageProduit from './PageProduit';
 import Contact from "./Contact"
 import Panier from './Panier'
 import Inscription from './Inscription';
-import AdminUser from './AdminUser'
-import Mentions from './Mentions'
-import { useState } from 'react';
+import AdminUser from './AdminUser';
+import Mentions from './Mentions';
 
 import {
   Routes,
@@ -32,7 +31,7 @@ function App() {
         <Route path="/Sports" element={<Sports/>}>
         </Route>
 
-        <Route path='/Produit/:idProduit' element={<PageProduit/>}>
+        <Route path='/Sport/:idProduit' element={<PageProduit/>}>
         </Route>
 
         <Route path='/Panier' element={<Panier/>}>

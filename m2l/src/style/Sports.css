@@ -15,6 +15,7 @@
 }
 .imgCaroussel{
     justify-content: center;
+    height: 44vh;
 }
 .carousel-inner{  /* Correspond au image qui défile */
     height: 25rem;

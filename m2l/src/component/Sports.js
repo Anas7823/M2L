@@ -60,9 +60,9 @@ return (<div className="produit">
       <Carousel>
         {Sports.map((sport, index) => (
           <Carousel.Item>
-            <Link to={"/produit/" + sport.idProduit}>
+            <Link to={"/Sport/" + sport.idProduit}>
               <div className="imgCaroussel">
-                    <img className="d-block w-100" style={{ background: `no-repeat url(${sport.banniere})`, height:'250vh' }}/> {/*bug d'image*/}
+                    <img className="d-block w-100" style={{ background: `center url(${sport.banniere})`, height:'70vh', backgroundSize:'cover' }}/> 
               </div>
                     <Carousel.Caption>
                       <h3>{sport.nom}</h3>
