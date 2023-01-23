@@ -115,7 +115,6 @@ return (<div className="produit">
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
     </div> */}
-
     <div className="toutArticles"> 
       <CardGroup>
         {Produits.map((produit, index) => (
@@ -127,7 +126,7 @@ return (<div className="produit">
               <h4>Coût: {produit.PrixProduit} €</h4>
             </Card.Text>
           </Card.Body>
-        </Card>
+        </Card> 
         ))}   
       </CardGroup>
     </div>
