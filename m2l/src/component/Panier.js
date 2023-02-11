@@ -1,4 +1,5 @@
 import '../style/Panier.css';
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import img from '../assets/foot/F100_RESIST_1.avif'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,8 +39,33 @@ function Panier(){
         image:img,
     }
 ]
+
+/* Représente la quantité  */
+let [count, setCount] = useState(0);
+
+function incrementCount() {
+  count = count + 1;
+  setCount(count);
+}
+function decrementCount() {
+  count = count - 1;
+  setCount(count);
+}
+/* Représente la quantité  */
+
+let [total, setTotal] = useState(0);
+
+function calculPanier() {
+    let total = Produits.reduce((accumulator, produit) => { /* Calcul le total et récupère prix du tableau Produits sous forme de int */
+      return accumulator + parseFloat(produit.prix.replace(/[^\d.-]/g, ''));
+    }, 0);
+    total = total * count;
+    setTotal(total)
+}
+
   return(
-    <div className="panier">    
+    <div className="panier">   
+    <Button onClick={calculPanier}>5</Button> bouton temporaire qui sert a actualiser le panier
       {Produits.map((produit)=> (
 
         <div className='produitPanier'>
@@ -52,7 +78,13 @@ function Panier(){
 
           <br/>
           <br/>
-          <br/>
+          
+          <div className="quantité">
+            <button onClick={decrementCount}>-</button>
+            <div>{count}</div>
+            <button onClick={incrementCount}>+</button>
+          </div>
+          
           <div className='infoAchat'>
             <h4>Prix: <b>{produit.prix}</b></h4> <Button variant="danger">Supprimer</Button>
           </div>
@@ -72,34 +104,14 @@ function Panier(){
 
         <hr/>
         <div>
-          <h3 className='prix-total'>Prix Total:{}€
+          <h3 className='prix-total'>Prix Total:{total}€
           </h3>
         </div>
         <Button variant="success">Acheter</Button>
       </div> 
 
     </div>
-    )
-    async function Total(){
-      try{
-        const attendre = await Panier()
-        const prixPanier = document.querySelector(".prix-total");
-        const articles = document.querySelectorAll(".produitPanier");
-        
-        // créer la fonction pour pouvoir l'utiliser quand on veut !
-        const reloadDesPrix =  () => {
-          prixPanier.innerText=0;
-          articles.forEach((article) => {
-            const price = article.querySelector(".infoAchat > h4 > b").innerText;
-            console.log(price);
-          })
-        }
-        reloadDesPrix() 
-      } catch (error) {
-        console.error(error);
-      }}
-      Total()
-    }
+    )   
+  }
   
-
 export default Panier;
