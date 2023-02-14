@@ -27,21 +27,24 @@ const Sports = [
     nom: "BasketBall", 
     banniere: banniereBasketball,
     numSlide: "First",
-    prix: 33,
+    prix: 24.99,
+    img: ballonBasket,
   },
   {
     idProduit: 2,
     nom: "FootBall" , 
     banniere: banniereFootball,
     numSlide: "Second",
-    prix: 33,
+    prix: 28.99,
+    img: ballonFoot,
   },
   {
     idProduit: 3,
     nom: "Squash", 
     banniere: banniereSquash,
     numSlide: "Third",
-    prix: 33,
+    prix: 44.59,
+    img: raquetteSquash,
   }
 ]
 const [Produits,setProduits] = useState([]);
@@ -76,28 +79,10 @@ return (<div className="produit">
         <h1>Liste des meilleurs ventes :</h1>
     </div>
 
-    <CardGroup> 
-      {Produits.map((produit) =>(
-      <Card>
-        <Card.Img variant="top" src={ballonFoot} />
-        <Card.Body>
-          <Card.Title>{produit.NomProduit}</Card.Title>
-          <Card.Text>
-            <h4>Coût: {produit.PrixProduit} €</h4>
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      ))}
-      
-    </CardGroup>
-
-  {/* <CardGroup>
+  <CardGroup>
       {Sports.map((produit) =>(
       <Card>
-        <Card.Img variant="top" src={ballonFoot} />
+        <Card.Img variant="top" src={produit.img} />
         <Card.Body>
           <Card.Title>{produit.nom}</Card.Title>
           <Card.Text>
@@ -114,7 +99,7 @@ return (<div className="produit">
 
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
-    </div> */}
+    </div> 
     <div className="toutArticles"> 
       <CardGroup>
         {Produits.map((produit, index) => (
