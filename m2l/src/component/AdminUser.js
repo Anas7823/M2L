@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import '../style/Admin.css'
+
 export default function AdminUser() {
-  const [NomRecherche, setNomRecherche] = useState("");
+  const [Id,SetId] = useState();
   const [Nom, setNom] = useState("");
-  const [Find, setFind] = useState(1);
   const [Mdp, setMdp] = useState("");
+  const [Find, setFind] = useState(2);
   const [Mail, setMail] = useState("");
   const [Admin, setAdmin] = useState("");
   const [Adresse, setAdresse] = useState("");
-  const [Id,SetId] = useState();
+  const [NomRecherche, setNomRecherche] = useState("");
   const [chargement, setChargement] = useState(true)
 
-  // MODE RECHERCHE
+  // MODE RECHERCHE 
   useEffect(() => {
     async function getData() {
       let res = await axios.get(`http://localhost:8000/utilisateur/${Find}`);
@@ -36,6 +39,10 @@ export default function AdminUser() {
     if (NomRecherche !== "") setFind(NomRecherche);
   };
 
+  const Suppr = async() => {
+      await axios.delete(`http://localhost:8000/utilisateur/${Find}`)
+  }
+
   const Modifier = async (e)=>{
     console.log(Admin)
     e.preventDefault()
@@ -55,9 +62,10 @@ export default function AdminUser() {
   return (
     <>
       <div className="back">
-        <div className="card">
+        <div className="card adminUser">
           <input type="text" onChange={Typename} value={NomRecherche} /> <br/>
-          <button onClick={Search}>Search</button><br/><br/>
+          <Button variant="primary" onClick={Search}>Chercher</Button>
+          <Button variant="danger" onClick={Suppr}>Supprimer</Button><br/><br/>
           <form onSubmit={Modifier}>
           Nom:<br/>
           <input type="text" defaultValue={Nom} id='nom'/><br/>

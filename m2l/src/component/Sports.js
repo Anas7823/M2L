@@ -14,7 +14,7 @@ import ballonBasket from "../assets/ballon-de-basket.jpg"
 import raquetteSquash from "../assets/raquette-squash.jpg"
 
 import axios from "axios";
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 
 import '../style/Sports.css';
 
@@ -54,7 +54,9 @@ async function getProduit(){
   setProduits(res.data)
 }
 
-getProduit()
+
+useEffect(() => {getProduit()},[]);
+
 
 return (<div className="produit">
     <div className="titreProduit">
