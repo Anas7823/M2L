@@ -102,21 +102,22 @@ return (<div className="produit">
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
     </div> 
-    <div className="toutArticles"> 
-      <CardGroup>
+    <div className="toutArticles">
+      <div className="card-grid">
         {Produits.map((produit, index) => (
-          <Card>
-          <Card.Img variant="top" src={ballonFoot} />
-          <Card.Body>
-            <Card.Title>{produit.NomProduit}</Card.Title>
-            <Card.Text>
-              <h4>Coût: {produit.PrixProduit} €</h4>
-            </Card.Text>
-          </Card.Body>
-        </Card> 
-        ))}   
-      </CardGroup>
+          <Card key={index}>
+            <Card.Img variant="top" src={ballonFoot} />
+            <Card.Body>
+              <Card.Title>{produit.NomProduit}</Card.Title>
+              <Card.Text>
+                <h4>Coût: {produit.PrixProduit} €</h4>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
+
 
     {/* <div className="toutArticles">
     <CardGroup>
