@@ -2,10 +2,9 @@
     justify-content: center;
 }
 .toutArticles{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    columns: 6rem auto;
+    justify-content: center;
+    margin: 2vw;
+    padding: 1px;
 }
 .card {
     flex: 1 0 25%;
@@ -15,25 +14,18 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 } 
+.card-body > p > h4{
+    margin-left: -18%;
+}
+.img-card{
+    height:auto;
+}
 .card-flex {
     flex-wrap: wrap;
 }
 .card-flex-item {
     flex: 1 0 25%;
 }
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-    
-
-
-
-
-
-
-
 .titreProduit{
     display: block;
     height: 5rem;

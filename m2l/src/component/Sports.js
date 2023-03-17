@@ -18,7 +18,6 @@ import React, { useEffect, useState} from "react";
 
 import '../style/Sports.css';
 
-import CardProduit from "../component/CardProduit.js"
 
 function Sports(){ 
 const Sports = [
@@ -106,7 +105,7 @@ return (<div className="produit">
       <div className="card-grid">
         {Produits.map((produit, index) => (
           <Card key={index}>
-            <Card.Img variant="top" src={ballonFoot} />
+            <Card.Img class='img-card' variant="top" src={ballonFoot} />
             <Card.Body>
               <Card.Title>{produit.NomProduit}</Card.Title>
               <Card.Text>
