@@ -66,7 +66,7 @@ function calculPanier() {
   return(
     <div className="panier">   
     <Button onClick={calculPanier}>5</Button> bouton temporaire qui sert a actualiser le panier
-      {Produits.map((produit)=> (
+    {Produits.map((produit)=> (
 
         <div className='produitPanier'>
         <div className='img' style={{backgroundImage: `url${produit.image}`}}>

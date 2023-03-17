@@ -1,0 +1,7 @@
+.LeProduit{
+    border: 1px red solid;
+    background-color: brown;
+    height: 80vh;
+    width: 99vw;
+    padding: 2rem;
+}
