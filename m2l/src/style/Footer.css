@@ -3,6 +3,7 @@ body{
 }
 
 .footer{
+    margin-top: 1px;
     bottom:0;
     height: 14vh;
     width: 100%;

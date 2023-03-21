@@ -5,6 +5,7 @@
     justify-content: center;
     margin: 2vw;
     padding: 1px;
+    margin-bottom: 15vh;
 }
 .card {
     flex: 1 0 25%;
