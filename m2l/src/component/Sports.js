@@ -18,14 +18,13 @@ import React, { useEffect, useState} from "react";
 
 import '../style/Sports.css';
 
-import CardProduit from "../component/CardProduit.js"
 
 import Panier from "./Panier";
 
 function Sports(){ 
 const Sports = [
   {
-    idProduit: 1,
+    idSport: 1,
     nom: "BasketBall", 
     banniere: banniereBasketball,
     numSlide: "First",
@@ -33,7 +32,7 @@ const Sports = [
     img: ballonBasket,
   },
   {
-    idProduit: 2,
+    idSport: 2,
     nom: "FootBall" , 
     banniere: banniereFootball,
     numSlide: "Second",
@@ -41,7 +40,7 @@ const Sports = [
     img: ballonFoot,
   },
   {
-    idProduit: 3,
+    idSport: 3,
     nom: "Squash", 
     banniere: banniereSquash,
     numSlide: "Third",
@@ -79,7 +78,7 @@ return (<div className="produit">
       <Carousel>
         {Sports.map((sport, index) => (
           <Carousel.Item>
-            <Link to={"/Sport/" + sport.idProduit}>
+            <Link to={"/Sport/" + sport.idSport}>
               <div className="imgCaroussel">
                     <img className="d-block w-100" style={{ background: `center url(${sport.banniere})`, height:'70vh', backgroundSize:'cover' }}/> 
               </div>
@@ -88,7 +87,7 @@ return (<div className="produit">
                     </Carousel.Caption>
             </Link>
           </Carousel.Item>
-            ))}
+        ))}
       </Carousel>
 
     <div className="titreProduit">
@@ -117,21 +116,24 @@ return (<div className="produit">
     <div className="titreProduit">
         <h1>Listes de tout les articles :</h1>
     </div> 
-    <div className="toutArticles"> 
-      <CardGroup>
+    <div className="toutArticles">
+      <div className="card-grid">
         {Produits.map((produit, index) => (
-          <Card>
-          <Card.Img variant="top" src={ballonFoot} />
-          <Card.Body>
-            <Card.Title>{produit.NomProduit}</Card.Title>
-            <Card.Text>
-              <h4>Coût: {produit.PrixProduit} €</h4>
-            </Card.Text>
-          </Card.Body>
-        </Card> 
-        ))}   
-      </CardGroup>
+          <Card key={index}>
+            <Card.Img class='img-card' variant="top" src={ballonFoot} />
+            <Card.Body>
+              <Link to={'/Sport/unique/' + produit.IdProduit}>
+                <Card.Title>{produit.NomProduit}</Card.Title>
+              </Link>
+              <Card.Text>
+                <h4>Coût: {produit.PrixProduit} €</h4>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
+
 
     {/* <div className="toutArticles">
     <CardGroup>

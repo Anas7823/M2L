@@ -1,0 +1,35 @@
+.LeProduit{
+    height: 80vh;
+    width: 99vw;
+    padding: 2rem;
+}
+
+.produitContenue{
+    display: grid;
+    grid: repeat(1, 100%) / auto-flow 50%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90vw;
+    height: 70vh;
+    border-radius: 20px;
+    border: blue 1px solid;
+}
+
+.produitContenue .produitImage{
+    border: 1px solid red;
+}
+
+.produitImage .imagePrincipal{
+    border: 1px solid rosybrown;
+    border-radius: 20px;
+    margin: 20px;
+    height: 70%;
+    align-items: center;
+}
+
+.imagePrincipal img{
+    margin-right: auto;
+    margin-left: auto;
+    height: 45vh;
+    width: 25vw;
+}

@@ -2,19 +2,31 @@
     justify-content: center;
 }
 .toutArticles{
-    
-    border: 1px solid red;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
-    columns: 6rem auto;
-    width: 10rem !important;
-      
-    }
+    justify-content: center;
+    margin: 2vw;
+    padding: 1px;
+    margin-bottom: 15vh;
+}
 .card {
     flex: 1 0 25%;
-}    
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
+    gap: 2%;
+} 
+.card-body > p > h4{
+    margin-left: -18%;
+}
+.img-card{
+    height:auto;
+}
+.card-flex {
+    flex-wrap: wrap;
+}
+.card-flex-item {
+    flex: 1 0 25%;
+}
 .titreProduit{
     display: block;
     height: 5rem;
