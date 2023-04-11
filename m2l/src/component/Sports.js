@@ -20,6 +20,8 @@ import '../style/Sports.css';
 
 import CardProduit from "../component/CardProduit.js"
 
+import Panier from "./Panier";
+
 function Sports(){ 
 const Sports = [
   {
@@ -54,9 +56,21 @@ async function getProduit(){
   setProduits(res.data)
 }
 
-
 useEffect(() => {getProduit()},[]);
 
+// const ajouter = (produit) => {
+//   const produitExistant = JSON.parse(localStorage.getItem("cartItems")) || [];
+//   const itemIndex = produitExistant.findIndex((item) => item.idProduit === produit.id);
+
+//   if (itemIndex === -1) {
+//     produitExistant.push({ ...produit, qty: 1 });
+//   } else {
+//     produitExistant[itemIndex].qty += 1;
+//   }
+
+//   localStorage.setItem("cartItems", JSON.stringify(produitExistant));
+//   setCartItems(produitExistant);
+// };
 
 return (<div className="produit">
     <div className="titreProduit">
@@ -89,6 +103,7 @@ return (<div className="produit">
           <Card.Title>{produit.nom}</Card.Title>
           <Card.Text>
             <h4>Coût: {produit.prix} €</h4>
+            {/* <button onClick={ajouter(produit)}>Ajouter au Panier</button> */}
           </Card.Text>
         </Card.Body>
         <Card.Footer>

@@ -1,5 +1,5 @@
 import '../style/Panier.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import img from '../assets/foot/F100_RESIST_1.avif'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,59 +39,89 @@ function Panier(){
         image:img,
     }
 ]
+  const [cartItems, setCartItems] = useState([]);
 
-/* Représente la quantité  */
-let [count, setCount] = useState(0);
+  // Récupération des articles dans le local storage
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (cartItems) {
+      setCartItems(cartItems);
+    }
+  }, []);
 
-function incrementCount() {
-  count = count + 1;
-  setCount(count);
-}
-function decrementCount() {
-  count = count - 1;
-  setCount(count);
-}
-/* Représente la quantité  */
+  // Ajout d'un article au panier
+  const ajouter = (item) => {
+    const exist = cartItems.find((x) => x.idProduit === item.idProduit);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.idProduit === item.idProduit ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+      console.log('test qty = 1');
+    } else {
+      setCartItems([...cartItems, { ...item, qty: 1 }]);
+      console.log('test qty = 1');
+    }
+  };
 
-let [total, setTotal] = useState(0);
+  // Retrait d'un article du panier
+  const retirer = (item) => {
+    const exist = cartItems.find((x) => x.idProduit === item.idProduit);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.idProduit !== item.idProduit));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.idProduit === item.idProduit ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
 
-function calculPanier() {
-    let total = Produits.reduce((accumulator, produit) => { /* Calcul le total et récupère prix du tableau Produits sous forme de int */
-      return accumulator + parseFloat(produit.prix.replace(/[^\d.-]/g, ''));
-    }, 0);
-    total = total * count;
-    setTotal(total)
-}
+  // Calcul du prix total
+  const totalPrix = cartItems.reduce(
+    (acc, item) => acc + parseInt(item.prix) * item.qty,
+    0
+  );
 
-  return(
-    <div className="panier">   
-    <Button onClick={calculPanier}>5</Button> bouton temporaire qui sert a actualiser le panier
-      {Produits.map((produit)=> (
+  // Enregistrement des articles dans le local storage
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
-        <div className='produitPanier'>
-        <div className='img' style={{backgroundImage: `url${produit.image}`}}>
-          <img src={produit.image}></img>
-        </div>
-          <div className='panierNomProduit'>
-          <h1>{produit.nom}</h1>
-          <p>{produit.vendeur}</p>
-
-          <br/>
-          <br/>
-          
-          <div className="quantité">
-            <button onClick={decrementCount}>-</button>
-            <div>{count}</div>
-            <button onClick={incrementCount}>+</button>
-          </div>
-          
-          <div className='infoAchat'>
-            <h4>Prix: <b>{produit.prix}</b></h4> <Button variant="danger">Supprimer</Button>
-          </div>
-        </div>
-      </div>
+  return (
+    <div>
+      {Produits.map((produit) =>(
+        <button onClick={() =>ajouter(produit)}>+</button>
       ))}
-      
+      {cartItems.length === 0 ? (
+        <div>Le panier est vide.</div>
+      ) : (
+        cartItems.map((produit) => (
+          <div className='produitPanier'>
+            <div className='img' style={{backgroundImage: `url${produit.image}`}}>
+              <img src={produit.image}></img>
+            </div>
+            <div className='panierNomProduit'>
+              <h1>{produit.nom}</h1>
+              <p>{produit.vendeur}</p>
+  
+              <br/><br/>
+            
+              <div className="quantité">
+                <button onClick={() =>retirer(produit)}>-</button>
+                <div>{produit.qty}</div>
+                <button onClick={() =>ajouter(produit)}>+</button>
+              </div>
+            
+              <div className='infoAchat'>
+                <h4>Prix: <b>{produit.prix}</b></h4>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
       <div className='achat'>
         <h1>Total:</h1>
         {Produits.map((produit)=> (
@@ -104,14 +134,16 @@ function calculPanier() {
 
         <hr/>
         <div>
-          <h3 className='prix-total'>Prix Total:{total}€
+          <h3 className='prix-total'>Prix Total:{totalPrix}€
           </h3>
         </div>
         <Button variant="success">Acheter</Button>
       </div> 
 
     </div>
-    )   
-  }
+  );
+};
+
+
   
 export default Panier;
