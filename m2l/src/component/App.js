@@ -32,10 +32,10 @@ function App() {
         <Route path="/Sports" element={<Sports/>}>
         </Route>
 
-        <Route path='/Sport/:idSport' element={<PageProduit/>}>
+        <Route path='/Sport/:NomSport' element={<PageProduit/>}>
         </Route>
 
-        <Route path='/Sport/unique/:IdProduit' element={<LeProduit/>}>
+        <Route path='/produit/:IdProduit' element={<LeProduit/>}>
         </Route>
 
         <Route path='/Panier' element={<Panier/>}>

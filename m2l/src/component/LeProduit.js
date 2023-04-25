@@ -1,11 +1,25 @@
 import '../style/LeProduit.css';
-import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import sport from '../assets/ballon-de-basket.jpg'
 
+import axios from "axios";
+import React, { useEffect, useState} from "react";
+
+
 function LeProduit(){
-return(<div className="LeProduit">
+    
+const [Produits,setProduits] = useState([]);
+async function getProduit(){
+    let res = await axios.get('http://localhost:8000/produit/:id')
+    console.log(res.data)
+    setProduits(res.data)
+}
+
+useEffect(() => {getProduit()},[]);
+
+return(
+<div className="LeProduit">
     <div className='produitContenue'>
         <div className='produitImage'>
             <div className='imagePrincipal'>
@@ -18,9 +32,9 @@ return(<div className="LeProduit">
             </div>
         </div>
         <div className='produitInfo'>
-            <h1>Titre</h1>
+            <h1>{Produits.NomProduit}</h1>
             <hr/>
-            <h3>Prix: ####€ </h3>
+            <h3>{Produits.PrixProduit}</h3>
             <br/>
             <br/>
             <br/>

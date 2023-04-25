@@ -79,7 +79,7 @@ return (<div className="produit">
       <Carousel>
         {Sports.map((sport, index) => (
           <Carousel.Item>
-            <Link to={"/Sport/" + sport.idSport}>
+            <Link to={"/Sport/" + sport.nom}>
               <div className="imgCaroussel">
                     <img className="d-block w-100" style={{ background: `center url(${sport.banniere})`, height:'70vh', backgroundSize:'cover' }}/> 
               </div>
@@ -123,7 +123,7 @@ return (<div className="produit">
           <Card key={index}>
             <Card.Img class='img-card' variant="top" src={ballonFoot} />
             <Card.Body>
-              <Link to={'/Sport/unique/' + produit.IdProduit}>
+              <Link to={'/produit/' + produit.IdProduit}>
                 <Card.Title>{produit.NomProduit}</Card.Title>
               </Link>
               <Card.Text style={{display:"flex"}}>
