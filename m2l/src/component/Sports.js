@@ -138,7 +138,7 @@ return (<div className="produit">
               </Link>
               <Card.Text style={{display:"flex"}}>
                 <h4>Coût: {produit.PrixProduit} €</h4> 
-                <Button variant="success" className='btnAchatSports' onClick={ajouter(produit)}><b>Acheter</b></Button>
+                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
               </Card.Text>
             </Card.Body>
           </Card>
