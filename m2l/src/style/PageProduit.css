@@ -73,3 +73,12 @@
     background-color:purple;
     
 }
+.color{
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+}
+
+.color Button{
+    
+}

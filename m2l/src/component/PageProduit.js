@@ -25,7 +25,7 @@ const Produits = [
     },
     {
         idProduit: 3,
-        typeProduit:"Ballon",
+        typeProduit:"Raquette",
         nom: "test 3",
         prix: "### €",
         img: raquetteSquash,

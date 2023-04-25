@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import Button from 'react-bootstrap/Button';
 
 import Carousel from 'react-bootstrap/Carousel';
 import banniereBasketball from "../assets/banniere-basketball.jpg"
@@ -135,9 +136,9 @@ return (<div className="produit">
               <Link to={'/Sport/unique/' + produit.IdProduit}>
                 <Card.Title>{produit.NomProduit}</Card.Title>
               </Link>
-              <Card.Text>
-                <h4>Coût: {produit.PrixProduit} €</h4>
-                <button onClick={() =>ajouter(produit)}>+</button>
+              <Card.Text style={{display:"flex"}}>
+                <h4>Coût: {produit.PrixProduit} €</h4> 
+                <Button variant="success" className='btnAchatSports' onClick={ajouter(produit)}><b>Acheter</b></Button>
               </Card.Text>
             </Card.Body>
           </Card>
