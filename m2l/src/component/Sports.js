@@ -57,19 +57,29 @@ async function getProduit(){
 
 useEffect(() => {getProduit()},[]);
 
-// const ajouter = (produit) => {
-//   const produitExistant = JSON.parse(localStorage.getItem("cartItems")) || [];
-//   const itemIndex = produitExistant.findIndex((item) => item.idProduit === produit.id);
+const [cartItems, setCartItems] = useState([]);
 
-//   if (itemIndex === -1) {
-//     produitExistant.push({ ...produit, qty: 1 });
-//   } else {
-//     produitExistant[itemIndex].qty += 1;
-//   }
+// Récupération des articles dans le local storage
+useEffect(() => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (cartItems) {
+    setCartItems(cartItems);
+  }
+}, []);
 
-//   localStorage.setItem("cartItems", JSON.stringify(produitExistant));
-//   setCartItems(produitExistant);
-// };
+const ajouter = (produit) => {
+  const produitExistant = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const itemIndex = produitExistant.findIndex((item) => item.IdProduit === produit.IdProduit);
+
+  if (itemIndex === -1) {
+    produitExistant.push({ ...produit, qty: 1 });
+  } else {
+    produitExistant[itemIndex].qty += 1;
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(produitExistant));
+  setCartItems(produitExistant);
+};
 
 return (<div className="produit">
     <div className="titreProduit">
@@ -127,6 +137,7 @@ return (<div className="produit">
               </Link>
               <Card.Text>
                 <h4>Coût: {produit.PrixProduit} €</h4>
+                <button onClick={() =>ajouter(produit)}>+</button>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -142,7 +153,31 @@ return (<div className="produit">
         ))}   
       </CardGroup>
     </div>   */}
-          
+          {cartItems.length === 0 ? (
+        <div>Le panier est vide.</div>
+      ) : (
+        cartItems.map((produit) => (
+          <div className='produitPanier'>
+            <div className='img' style={{backgroundImage: `url${produit.image}`}}>
+              <img src={produit.image}></img>
+            </div>
+            <div className='panierNomProduit'>
+              <h1>{produit.NomProduit}</h1>
+              <p>{produit.vendeur}</p>
+  
+              <br/><br/>
+            
+              <div className="quantité">
+                <div>{produit.qty}</div>
+              </div>
+            
+              <div className='infoAchat'>
+                <h4>Prix: <b>{produit.PrixProduit}</b></h4>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
 </div>
 )};
 
