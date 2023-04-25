@@ -50,9 +50,8 @@ p{
 }
 
 .achat{
-    z-index: 2;
-    margin-left: 80%;
-    /* margin-top: 5.5rem; */
+    z-index: 1;
+    position: fixed;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -62,6 +61,8 @@ p{
     padding: 10px;
     min-width: 15vw;
     max-width: 18vw;
+    top: 15%;
+    right: 2%;
 }
 
 .achat > button {
