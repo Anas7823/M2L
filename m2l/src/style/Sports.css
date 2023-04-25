@@ -7,9 +7,6 @@
     padding: 1px;
     margin-bottom: 15vh;
 }
-.card {
-    flex: 1 0 25%;
-}
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
@@ -72,4 +69,15 @@
 
 .btnAchatSports{
     float: right;
+    margin-left: auto;
+}
+
+.coutProduit{
+    justify-content: end;
+    text-align: center;
+    margin-top: 6vh;
+}
+
+.cardTitle{
+    position: absolute;
 }

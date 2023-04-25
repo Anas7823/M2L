@@ -26,7 +26,6 @@
 }
 
 .produitImage .imagePrincipal{
-    /* border: 1px solid rosybrown; */
     margin-left: 0px;
     border-radius: 20px;
     margin: 20px;
@@ -37,9 +36,10 @@
     height: 45vh;
     width: 23vw;
     margin-left: 10rem;
+    margin-top: 10vh;
 }
 
-.sous-img{
+/* .sous-img{
     display: flex;
     flex: 1;
     margin-left: auto;
@@ -54,7 +54,7 @@
 }
 .petiteImg :hover{
     border: 5px black solid;
-}
+} */
 
 .produitInfo{
     /* From https://css.glass */
@@ -68,7 +68,7 @@
     padding: 10px;
     height: 100%;
 }
-.etatStock{
+.enStock{
     border: 1px solid green;
     background-color: rgba(0, 128, 0, 0.319);
     border-radius: 10px;
@@ -78,6 +78,18 @@
     float: right;
     margin-top: 15px;
 }
+
+.pasDeStock{
+    border: 1px solid red;
+    background-color: rgba(128, 0, 0, 0.319);
+    border-radius: 10px;
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    float: right;
+    margin-top: 15px;
+}
+
 .btnAchat{
     float: right;
     height: 7vh;
