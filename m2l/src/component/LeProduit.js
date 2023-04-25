@@ -14,7 +14,6 @@ const [Produits,setProduits] = useState([]);
 let { IdProduit } = useParams();
 
 async function getProduit(){
-    
     let res = await axios.get('http://localhost:8000/produit/'+IdProduit)
     console.log(res.data)
     setProduits(res.data[0])

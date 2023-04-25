@@ -47,6 +47,16 @@ const Sports = [
     img: raquetteSquash,
   }
 ]
+// const [lesSports,setSports] = useState([]);
+// async function getProduit(){
+//   let res = await axios.get('http://localhost:8000/listesport')
+//   console.log(res.data)
+//   setSports(res.data)
+// }
+
+// useEffect(() => {getProduit()},[]);
+
+
 const [Produits,setProduits] = useState([]);
 async function getProduit(){
   let res = await axios.get('http://localhost:8000/sports')
