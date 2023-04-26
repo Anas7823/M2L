@@ -67,9 +67,9 @@ function Panier(){
   }, [cartItems]);
 
   return (
-    <div>
+    <div style={{height: "80vh"}}>
       {cartItems.length === 0 ? (
-        <div>Le panier est vide.</div>
+        <div> <h1>Le panier est vide. </h1> </div>
       ) : (
         cartItems.map((produit) => (
           <div className='produitPanier'>

@@ -60,6 +60,7 @@ console.log("page charger");
 
 return (
     <div className="pageProduit">
+        <div className='card-grid' style={{alignItems: "stretch"}}>
         {Produits.map((produit) => (
             <div className="contenueProduit">
                 <div class="card p-3">
@@ -83,6 +84,7 @@ return (
                 </div>
             </div> 
         ))}
+        </div>
 </div>
 )};
 
