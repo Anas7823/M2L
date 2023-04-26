@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import img from '../assets/foot/F100_RESIST_1.avif'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function Panier(){
@@ -77,7 +77,10 @@ function Panier(){
               <img src={produit.image}></img>
             </div>
             <div className='panierNomProduit'>
-              <h1>{produit.NomProduit}</h1>
+              <Link style={{textDecoration: "none", color: "black"}} to={'/produit/' + produit.IdProduit}>
+                <h3>{produit.NomProduit}</h3>
+              </Link>
+              
               <p>{produit.vendeur}</p>
   
               <br/><br/>
