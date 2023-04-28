@@ -45,7 +45,7 @@ function Mentions(props){
             </p>
             <h2>Loi applicable</h2><br></br>
             <p> Le présent site est soumis à la loi française.</p>
-            <h6>© 2022 M2L</h6><br></br>
+            <h6>© 2023 M2L</h6><br></br>
 
 
         </div>

@@ -46,6 +46,16 @@ const Sports = [
     img: raquetteSquash,
   }
 ]
+// const [lesSports,setSports] = useState([]);
+// async function getProduit(){
+//   let res = await axios.get('http://localhost:8000/listesport')
+//   console.log(res.data)
+//   setSports(res.data)
+// }
+
+// useEffect(() => {getProduit()},[]);
+
+
 const [Produits,setProduits] = useState([]);
 async function getProduit(){
   let res = await axios.get('http://localhost:8000/sports')
@@ -110,7 +120,6 @@ return (<div className="produit">
           <Card.Title>{produit.nom}</Card.Title>
           <Card.Text>
             <h4>Coût: {produit.prix} €</h4>
-            {/* <button onClick={ajouter(produit)}>Ajouter au Panier</button> */}
           </Card.Text>
         </Card.Body>
         <Card.Footer>
@@ -130,13 +139,14 @@ return (<div className="produit">
           <Card key={index}>
             <Card.Img class='img-card' variant="top" src={ballonFoot} />
             <Card.Body>
-              <Link to={'/produit/' + produit.IdProduit}>
-                <Card.Title>{produit.NomProduit}</Card.Title>
-              </Link>
+              <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
               <Card.Text style={{display:"flex"}}>
-                <h4>Coût: {produit.PrixProduit} €</h4> 
-                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
+                <h4 className="coutProduit" >Coût: {produit.PrixProduit} €</h4> 
               </Card.Text>
+                <Link to={'/produit/' + produit.IdProduit}>
+                  <Button variant="primary"><b>Plus d'info</b></Button>
+                </Link>
+                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
             </Card.Body>
           </Card>
         ))}

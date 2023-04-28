@@ -12,44 +12,75 @@ import axios from "axios";
 import React, { useEffect, useState} from "react";
 
 function Produit(props){
-
 const [Produits,setProduits] = useState([]);
+let { NomSport } = useParams();
+
 async function getProduit(){
-  let res = await axios.get('http://localhost:8000/sports/:sport')
+  let res = await axios.get('http://localhost:8000/sport/'+NomSport)
   console.log(res.data)
   setProduits(res.data)
 }
 
 useEffect(() => {getProduit()},[]);
 
+const [cartItems, setCartItems] = useState([]);
+
+// Récupération des articles dans le local storage
+useEffect(() => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (cartItems) {
+    setCartItems(cartItems);
+  }
+}, []);
+
+const ajouter = (produit) => {
+  const produitExistant = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const itemIndex = produitExistant.findIndex((item) => item.IdProduit === produit.IdProduit);
+
+  if (itemIndex === -1) {
+    produitExistant.push({ ...produit, qty: 1 });
+  } else {
+    produitExistant[itemIndex].qty += 1;
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(produitExistant));
+  setCartItems(produitExistant);
+};
+
 
 const { idProduit } = useParams() 
 console.log("page charger");
 
-return (<div className="pageProduit">
-        {Produits.map((produit)=>(
-        <div className="contenueProduit">
-            <div class="card p-3">
-                <div class="d-flex justify-content-between align-items-center ">
-                    <div class="mt-2">
-                        <h4 class="text-uppercase" id="sport">{produit.typeProduit}</h4>
-                        <div class="mt-5">
-                            <h5 class="text-uppercase mb-0" id="nom">{produit.nomProduit}</h5>
-                            <h1 class="main-heading mt-0" id="prix">{produit.prixProduit}</h1>
-                        </div>
+return (
+    <div className="pageProduit">
+        <div className='card-gridProduits' style={{alignItems: "stretch"}}>
+        {Produits.map((produit) => (
+            <div className="contenueProduit">
+                <div className="card p-3">
+                    <div className="d-flex justify-content-between align-items-center ">
+                        
+                                <div className="mt-2">
+                                        <h5 className="text-uppercase mb-0" id="nom" style={{position: "absolute", width:"50%"}}>{produit.NomProduit}</h5>
+                                    <div className="mt-5">
+                                        <br/>
+                                        <h1 className="main-heading mt-5" id="prix">{produit.PrixProduit}</h1>
+                                    </div>
+                                </div>
+                            
+                            <div className="image">
+                                <img src={ballonFoot} width="150"/>
+                            </div>
+                            
                     </div>
-                    <div class="image">
-                        <img src="" width="150"/>
-                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p>A great option weather you are at office or at home. </p>
+                    <button className="btn btn-primary" onClick={() => ajouter(produit)}>Acheter</button>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <p>A great option weather you are at office or at home. </p>
-                <button class="btn btn-primary">Acheter</button>
-            </div>
-        </div> 
+            </div> 
         ))}
+        </div>
 </div>
 )};
 
