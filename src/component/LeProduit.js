@@ -44,7 +44,7 @@ return(
             <hr/>
             <hr/>
             <h3 className={Produits.stockProduit > 0 ? 'enStock' : 'pasDeStock'}>{Produits.stockProduit > 0 ? 'En Stock' : 'Pas de Stock'}</h3>
-            <Button variant="success" className='btnAchat'><b>{Produits.stockProduit > 0 ? 'Ajouter au panier' : 'Indisponible'} </b></Button>
+            <Button variant={Produits.stockProduit > 0 ? "success" : "danger"} className='btnAchat'><b>{Produits.stockProduit > 0 ? 'Ajouter au panier' : 'Indisponible'} </b></Button>
         </div>
     </div>
 </div>

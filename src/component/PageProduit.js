@@ -3,7 +3,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/PageProduit.css';
 import { useParams } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 import ballonFoot from "../assets/ballon-de-foot.jpg"
 import ballonBasket from "../assets/ballon-de-basket.jpg"
 import raquetteSquash from "../assets/raquette-squash.jpg"
@@ -63,7 +64,7 @@ return (
                                         <h5 className="text-uppercase mb-0" id="nom" style={{position: "absolute", width:"50%"}}>{produit.NomProduit}</h5>
                                     <div className="mt-5">
                                         <br/>
-                                        <h1 className="main-heading mt-5" id="prix">{produit.PrixProduit}</h1>
+                                        <h1 className="main-heading mt-5" id="prix">{produit.PrixProduit}€</h1>
                                     </div>
                                 </div>
                             
@@ -81,6 +82,10 @@ return (
                     ) : (
                       <button className="btn btn-danger" disabled> Indisponible </button>
                     )}
+                    <br/>
+                    <Link to={'/produit/' + produit.IdProduit}>
+                      <Button variant="primary" style={{width: '100%'}} ><b>Plus d'info</b></Button>
+                    </Link>
                 </div>
             </div> 
         ))}
