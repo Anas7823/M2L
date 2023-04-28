@@ -19,7 +19,6 @@ import React, { useEffect, useState} from "react";
 
 import '../style/Sports.css';
 
-
 function Sports(){ 
 const Sports = [
   {
@@ -157,40 +156,6 @@ return (<div className="produit">
         ))}
       </div>
     </div>
-
-
-    {/* <div className="toutArticles">
-    <CardGroup>
-        {Sports.map((sport, index) => (
-          <CardProduit produit={sport}/>
-        ))}   
-      </CardGroup>
-    </div>   */}
-          {cartItems.length === 0 ? (
-        <div>Le panier est vide.</div>
-      ) : (
-        cartItems.map((produit) => (
-          <div className='produitPanier'>
-            <div className='img' style={{backgroundImage: `url${produit.image}`}}>
-              <img src={produit.image}></img>
-            </div>
-            <div className='panierNomProduit'>
-              <h1>{produit.NomProduit}</h1>
-              <p>{produit.vendeur}</p>
-  
-              <br/><br/>
-            
-              <div className="quantité">
-                <div>{produit.qty}</div>
-              </div>
-            
-              <div className='infoAchat'>
-                <h4>Prix: <b>{produit.PrixProduit}</b></h4>
-              </div>
-            </div>
-          </div>
-        ))
-      )}
 </div>
 )};
 
