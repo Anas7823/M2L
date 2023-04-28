@@ -12,36 +12,6 @@ import axios from "axios";
 import React, { useEffect, useState} from "react";
 
 function Produit(props){
-const ProduitsTest = [
-    {
-        idProduit: 1,
-        typeProduit:"Ballon",
-        nom: "NBA Team Tribute",
-        prix: "28.10€",
-        img: ballonFoot,
-    },
-    {
-        idProduit: 2,
-        typeProduit:"Chaussure",
-        nom: "test 2",
-        prix: "239.99€",
-        img: ballonBasket,
-    },
-    {
-        idProduit: 3,
-        typeProduit:"Raquette",
-        nom: "test 3",
-        prix: "### €",
-        img: raquetteSquash,
-    },
-    {
-        idProduit: 4,
-        typeProduit:"Ballon",
-        nom: "test 4",
-        prix: "### €",
-        img: ballonFoot,
-    }
-]
 
 const [Produits,setProduits] = useState([]);
 async function getProduit(){

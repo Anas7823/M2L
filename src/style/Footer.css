@@ -4,11 +4,12 @@ body{
 
 .footer{
     margin-top: 1px;
-    bottom:0;
+    bottom: -14vh;
     height: 14vh;
     width: 100%;
     color: white;
     background-color: black;
     padding-top: 10px;
     padding-bottom: 10px;
+    position: sticky;
 }
