@@ -75,8 +75,12 @@ return (
                     <br/>
                     <br/>
                     <br/>
-                    <p>A great option weather you are at office or at home. </p>
-                    <button className="btn btn-primary" onClick={() => ajouter(produit)}>Acheter</button>
+                    {/* <p>A great option weather you are at office or at home. </p> */}
+                    {produit.stockProduit > 0 ? (
+                      <button className="btn btn-primary" onClick={() => ajouter(produit)}>Acheter</button>
+                    ) : (
+                      <button className="btn btn-danger" disabled> Indisponible </button>
+                    )}
                 </div>
             </div> 
         ))}
