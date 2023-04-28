@@ -67,7 +67,7 @@ function Panier(){
   }, [cartItems]);
 
   return (
-    <div style={{height: "80vh"}}>
+    <div style={{minHeight: "80vh"}}>
       {cartItems.length === 0 ? (
         <div> <h1>Le panier est vide. </h1> </div>
       ) : (
