@@ -21,15 +21,6 @@ async function getProduit(){
 
 useEffect(() => {getProduit()},[]);
 
-// const stock = document.querySelector('etatStock');
-
-// if (Object.values(stock)){
-//     stock.style.color = 'green';
-//     stock.style.fontWeight = 'bold';
-//     stock.style.fontSize = '20px';
-// }
-
-
 return(
 <div className="LeProduit">
     <div className='produitContenue'>
