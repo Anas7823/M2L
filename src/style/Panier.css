@@ -62,6 +62,7 @@ p{
     padding: 10px;
     min-width: 15vw;
     max-width: 18vw;
+    max-height: 55vh;
     top: 15%;
     right: 2%;
 }

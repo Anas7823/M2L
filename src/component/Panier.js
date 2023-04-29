@@ -97,16 +97,19 @@ function Panier(){
             </div>
           </div>
         ))
-      )}
+        )}
+      <br/>
       <div className='achat'>
         <h1>Total:</h1>
+        <br/>
         {cartItems.map((produit)=> (
           
         <>  {/* résoud l'erreur:  Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? */}
           <p> <h5> {produit.NomProduit}:  {produit.PrixProduit}€</h5></p>
           <hr/>
         </>
-          ))}
+        ))}
+
 
         <hr/>
         <div>
