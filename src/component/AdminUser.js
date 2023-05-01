@@ -63,9 +63,12 @@ export default function AdminUser() {
     <>
       <div className="back">
         <div className="card adminUser">
+          <h3>Entrez votre recherche:</h3>
           <input type="text" onChange={Typename} value={NomRecherche} /> <br/>
-          <Button variant="primary" onClick={Search}>Chercher</Button>
-          <Button variant="danger" onClick={Suppr}>Supprimer</Button><br/><br/>
+          <div className="bouton">
+            <Button variant="primary" onClick={Search}>Chercher</Button>
+            <Button variant="danger" onClick={Suppr}>Supprimer</Button><br/><br/>
+          </div>
           <form onSubmit={Modifier}>
           Nom:<br/>
           <input type="text" defaultValue={Nom} id='nom'/><br/>
@@ -77,7 +80,7 @@ export default function AdminUser() {
           <input type="checkbox" defaultChecked={Admin == 1 ?  1 : 0} id='admin'/><br/>
           Adresse: <br/>
           <input type="text" defaultValue={Adresse} id='adress'/><br/>
-          <input type="submit" value="Modifier" />
+          <input type="submit" value="Modifier"/>
           </form>
         </div>
       </div>
