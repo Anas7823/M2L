@@ -9,7 +9,7 @@ function Contact(){
             <h1>Vous souhaitez nous contacter ?</h1>
         </div>
         <div className='Element-contact'>
-            <span className='Element-contact1'> <img alt='' src= {telephone} height={'50px'}></img><h3>06.98.76.54.32.</h3></span>
+            <span className='Element-contact1'> <img alt='' src= {telephone} height={'50px'}></img><h3>01.32.45.76.90</h3></span>
             <span className='Element-contact2'> <img alt='' src={mail} height={'50px'}></img><h3>M2L-association@gmail.com</h3></span>
         </div>
         <div className='iframe'>

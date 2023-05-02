@@ -9,7 +9,7 @@ function Footer(){
             </h4>
             <ul className="liste">
                 <li> numéro : 01 32 45 76 90</li>
-                <li> site officiel: M2L</li>
+                <li> site officiel: <Link to="/">M2L</Link></li>
                 <Link to='/MentionsLegales'>
                     <li> all right reserved</li>
                 </Link>
