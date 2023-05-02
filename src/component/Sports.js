@@ -46,15 +46,6 @@ const Sports = [
     img: raquetteSquash,
   }
 ]
-// const [lesSports,setSports] = useState([]);
-// async function getProduit(){
-//   let res = await axios.get('http://localhost:8000/listesport')
-//   console.log(res.data)
-//   setSports(res.data)
-// }
-
-// useEffect(() => {getProduit()},[]);
-
 
 const [Produits,setProduits] = useState([]);
 async function getProduit(){
@@ -117,7 +108,7 @@ return (<div className="produit">
       <Card>
         <Card.Img variant="top" src={produit.img} />
         <Card.Body>
-          <Card.Title>{produit.nom}</Card.Title>
+          <Card.Title>Sport: <b>{produit.nom}</b></Card.Title>
           <Card.Text>
             <h4>Coût: {produit.prix} €</h4>
           </Card.Text>

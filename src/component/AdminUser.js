@@ -70,17 +70,17 @@ export default function AdminUser() {
             <Button variant="danger" onClick={Suppr}>Supprimer</Button><br/><br/>
           </div>
           <form onSubmit={Modifier}>
-          Nom:<br/>
-          <input type="text" defaultValue={Nom} id='nom'/><br/>
-          Mot de passe: <br/>
-          <input type="text" defaultValue={Mdp} id='mdp'/><br/>
-          Mail: <br/>
-          <input type="email" defaultValue={Mail} id='mail'/><br/>
-          Admin:<br/>
-          <input type="checkbox" defaultChecked={Admin == 1 ?  1 : 0} id='admin'/><br/>
-          Adresse: <br/>
-          <input type="text" defaultValue={Adresse} id='adress'/><br/>
-          <input type="submit" value="Modifier"/>
+            Nom:<br/>
+            <input type="text" defaultValue={Nom} id='nom'/><br/>
+            Mot de passe: <br/>
+            <input type="text" defaultValue={Mdp} id='mdp'/><br/>
+            Mail: <br/>
+            <input type="email" defaultValue={Mail} id='mail'/><br/>
+            Admin:<br/>
+            <input type="checkbox" defaultChecked={Admin == 1 ?  1 : 0} id='admin'/><br/>
+            Adresse: <br/>
+            <input type="text" defaultValue={Adresse} id='adress'/><br/>
+            <input type="submit" value="Modifier"/>
           </form>
         </div>
       </div>
