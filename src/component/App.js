@@ -7,6 +7,7 @@ import Contact from "./Contact"
 import Panier from './Panier'
 import Inscription from './Inscription';
 import AdminUser from './AdminUser';
+import AdminProduct from './AdminProduct.js';
 import Mentions from './Mentions';
 import LeProduit  from './LeProduit';
 
@@ -26,6 +27,9 @@ function App() {
         <Route path='/Administration' element={<AdminUser/>}>
         </Route>
         
+        <Route path='/GestProduit' element={<AdminProduct/>}>
+        </Route>
+
         <Route path="/"element={<Accueil/>}>
         </Route>
 
