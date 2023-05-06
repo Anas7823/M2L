@@ -1,0 +1,14 @@
+.lesProduits{
+    /* border: 1px solid red; */
+    border-radius: 20px;
+}
+
+.lesProduits div{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    /* border: 1px solid blue; */
+    width: 25vw;
+    height: 25vh;
+    margin-bottom: 20px;
+}

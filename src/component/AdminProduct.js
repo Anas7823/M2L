@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-
-import '../style/Admin.css'
+import bal from '../assets/ballon-de-basket.jpg'
+import poubelle from '../assets/trash-solid.svg'
+import '../style/AdminProduit.css'
 
 export default function AdminUser() {
 const [produits, setProduits] = useState([]);
@@ -13,6 +14,10 @@ async function getProduit() {
   console.log(res.data)
   setProduits(res.data)
 }
+
+useEffect(() => {
+  getProduit();
+}, []);
 
 // Fonction de filtrage des produits pour le football
 function filterProduitsFootball() {
@@ -29,67 +34,59 @@ function filterProduitsSquash() {
   return produits.filter(produit => produit.IdSport === 3);
 }
 
-useEffect(() => {
-  getProduit();
-}, []);
-
 return (
   <>
     <div className="AdminProduct">
-      <h1>Administration des Produits</h1>    
+      <h1 style={{margin: "20px"}}>Administration des Produits</h1>    
       <h1>Produits de FootBall:</h1>
-      <div>
+      <div className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
             <div key={index}>
-              {/* <Card.Img class='img-card' variant="top"/> */}
+              <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
               <div>
                 {produit.NomProduit}
-                
-                Coût: {produit.PrixProduit} €
-                
-                <Link to={'/produit/' + produit.IdProduit}>
-                  <Button variant="primary"><b>+</b></Button>
-                </Link>
-                <Button variant="danger" className=''><b>-</b></Button>
+                Coût: {produit.PrixProduit}   €
+                <br/>
+                <Button variant="danger"><b>-</b></Button>
+                <Button variant="primary"><b>+</b></Button>
+                <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
               </div>
             </div>
           ))}            
       </div>
 
       <h1>Produits de BasketBall:</h1>
-      <div>
+      <div className="lesProduits">
         {filterProduitsBasket().map((produit, index) => (
           <div key={index}>
-            {/* <Card.Img class='img-card' variant="top"/> */}
+            <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
             <div>
               {produit.NomProduit}
-              
               Coût: {produit.PrixProduit} €
-              
-              <Link to={'/produit/' + produit.IdProduit}>
-                <Button variant="primary"><b>+</b></Button>
-              </Link>
-              <Button variant="danger" className=''><b>-</b></Button>
+              <br/>
+              <Button variant="danger"><b>-</b></Button>
+              <Button variant="primary"><b>+</b></Button>
+              <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
             </div>
           </div>
         ))}            
       </div>
 
       <h1>Produits de Squash:</h1>
-      <div>
-      {filterProduitsSquash().map((produit, index) => (
-        <div key={index}>
-          {/* <Card.Img class='img-card' variant="top"/> */}
-          <div>
-            {produit.NomProduit}
-            Coût: {produit.PrixProduit} €
-            <Link to={'/produit/' + produit.IdProduit}>
+      <div className="lesProduits">
+        {filterProduitsSquash().map((produit, index) => (
+          <div key={index}>
+            <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
+            <div>
+              {produit.NomProduit}
+              Coût: {produit.PrixProduit} €
+              <br/>
+              <Button variant="danger"><b>-</b></Button>
               <Button variant="primary"><b>+</b></Button>
-            </Link>
-            <Button variant="danger" className=''><b>-</b></Button>
+              <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+            </div>
           </div>
-        </div>
-        ))}
+          ))}
       </div>
   </div>
   </>
