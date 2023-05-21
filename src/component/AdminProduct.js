@@ -6,6 +6,11 @@ import bal from '../assets/ballon-de-basket.jpg'
 import poubelle from '../assets/trash-solid.svg'
 import '../style/AdminProduit.css'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+
 export default function AdminUser() {
 const [produits, setProduits] = useState([]);
 
@@ -37,9 +42,9 @@ function filterProduitsSquash() {
 return (
   <>
     <div className="AdminProduct">
-      <h1 style={{margin: "20px"}}>Administration des Produits</h1>    
-      <h1>Produits de FootBall:</h1>
-      <div className="lesProduits">
+      <h1 style={{margin: "20px", marginBottom:"50px", fontFamily:"fantasy"}}>Administration des Produits</h1>    
+      <h1  style={{marginBottom:"100px"}}>Produits de FootBall:</h1>
+      <CardGroup className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
             <div key={index}>
               <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
@@ -53,10 +58,10 @@ return (
               </div>
             </div>
           ))}            
-      </div>
+      </CardGroup>
 
-      <h1>Produits de BasketBall:</h1>
-      <div className="lesProduits">
+      <h1 style={{marginBottom:"100px"}}>Produits de BasketBall:</h1>
+      <CardGroup className="lesProduits">
         {filterProduitsBasket().map((produit, index) => (
           <div key={index}>
             <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
@@ -70,10 +75,10 @@ return (
             </div>
           </div>
         ))}            
-      </div>
+      </CardGroup>
 
-      <h1>Produits de Squash:</h1>
-      <div className="lesProduits">
+      <h1 style={{marginBottom:"100px"}}>Produits de Squash:</h1>
+      <CardGroup className="lesProduits">
         {filterProduitsSquash().map((produit, index) => (
           <div key={index}>
             <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
@@ -87,7 +92,7 @@ return (
             </div>
           </div>
           ))}
-      </div>
+      </CardGroup>
   </div>
   </>
 );
