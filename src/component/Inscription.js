@@ -2,21 +2,36 @@ import '../style/Inscription.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
+import * as React from "react";
+import { useState } from 'react';
 
 function Inscription(){
+    const [estInscrit, setEstInscrit] = useState(false);
     const Valider = async (e)=>{
         e.preventDefault()
         console.log(e.target)
+
         let res = await axios.post(`http://localhost:8000/utilisateur`, {
           nom : e.target[0].value,
           mdp : e.target[3].value,
           mail : e.target[1].value,
           adress : e.target[2].value
         });
+        setEstInscrit(true);
       }
 
     return <div className="Inscription">
-
+      {estInscrit && (
+        <div
+          style={{
+            backgroundColor: 'green',
+            color: 'white',
+            padding: '10px',
+          }}
+        >
+          Merci de votre inscription !
+        </div>
+      )}
         <form className='formulaire' onSubmit={Valider}>                
             <h1>Création d'un compte</h1>
 
