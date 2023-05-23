@@ -136,7 +136,7 @@ return (<div className="produit">
                 <Link to={'/produit/' + produit.IdProduit}>
                   <Button variant="primary"><b>Plus d'info</b></Button>
                 </Link>
-                {produit.stockProduit > 0 ? (
+                {produit.StockProduit > 0 ? (
                   <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
                 ) : (
                   <Button variant="danger" className='btnAchatSports' disabled><b>Indisponible</b></Button>

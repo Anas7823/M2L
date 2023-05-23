@@ -77,8 +77,8 @@ return (
                     <br/>
                     <br/>
                     {/* <p>A great option weather you are at office or at home. </p> */}
-                    {produit.stockProduit > 0 ? (
-                      <button className="btn btn-primary" onClick={() => ajouter(produit)}>Acheter</button>
+                    {produit.StockProduit > 0 ? (
+                      <button className="btn btn-success" onClick={() => ajouter(produit)}>Acheter</button>
                     ) : (
                       <button className="btn btn-danger" disabled> Indisponible </button>
                     )}

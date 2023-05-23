@@ -15,6 +15,7 @@ let { IdProduit } = useParams();
 
 async function getProduit(){
     let res = await axios.get('http://localhost:8000/produit/'+IdProduit)
+    console.log(IdProduit);
     console.log(res.data)
     setProduits(res.data[0])
 }
@@ -43,8 +44,8 @@ return(
             <br/>
             <hr/>
             <hr/>
-            <h3 className={Produits.stockProduit > 0 ? 'enStock' : 'pasDeStock'}>{Produits.stockProduit > 0 ? 'En Stock' : 'Pas de Stock'}</h3>
-            <Button variant={Produits.stockProduit > 0 ? "success" : "danger"} className='btnAchat'><b>{Produits.stockProduit > 0 ? 'Ajouter au panier' : 'Indisponible'} </b></Button>
+            <h3 className={Produits.StockProduit > 0 ? 'enStock' : 'pasDeStock'}>{Produits.StockProduit > 0 ? 'En Stock' : 'Pas de Stock'}</h3>
+            <Button variant={Produits.StockProduit > 0 ? "success" : "danger"} className='btnAchat'><b>{Produits.StockProduit > 0 ? 'Ajouter au panier' : 'Indisponible'} </b></Button>
         </div>
     </div>
 </div>
