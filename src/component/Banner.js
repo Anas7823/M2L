@@ -1,6 +1,7 @@
 import '../style/Banner.css';
 import axios from "axios"
 import * as React from "react";
+import ResultRecherche from './ResultRecherche'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -25,6 +26,20 @@ function Banner(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+    // Code pour la recherche 
+    
+    const [searchQuery, setSearchQuery] = useState('');
+  
+    const handleSearch = (event) => {
+      event.preventDefault();
+      // Effectuer l'action de recherche ici, si nécessaire
+    };
+  
+    const handleInputChange = (event) => {
+      setSearchQuery(event.target.value);
+    };
+    
     return <div className='banner'>
     <div className='ProduitNav'>
         <Link to='/'>
@@ -39,16 +54,20 @@ function Banner(){
         <Link to='/Contact'>
             <h4 className='elementNav'> Contact </h4>
         </Link>
-        <Form className="d-flex">
+        <Form className="d-flex" onSubmit={handleSearch}>
         <Form.Control
+          name="search"
           type="search"
           placeholder="Search"
           className="me-2 barreRecherche"
           aria-label="Search"
+          value={searchQuery}
+          onChange={handleInputChange}
         />
         <Button variant="outline-primary">Rechercher</Button>
-      </Form>
-        <Button variant="primary" className='btn-connexion' onClick={handleShow}>
+      </Form> <br/>
+      <ResultRecherche searchQuery={searchQuery}/>
+        <Button variant="primary" className='btn-connexion'>
           Connexion
         </Button>
 

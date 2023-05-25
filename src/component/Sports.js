@@ -127,7 +127,7 @@ return (<div className="produit">
       <div className="card-grid">
         {Produits.map((produit, index) => (
           <Card key={index}>
-            <Card.Img class='img-card' variant="top" src={ballonFoot} />
+            <Card.Img className='img-card' variant="top" src={ballonFoot} />
             <Card.Body>
               <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
               <Card.Text style={{display:"flex"}}>

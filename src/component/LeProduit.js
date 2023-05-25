@@ -22,6 +22,30 @@ async function getProduit(){
 
 useEffect(() => {getProduit()},[]);
 
+const [cartItems, setCartItems] = useState([]);
+
+// Récupération des articles dans le local storage
+useEffect(() => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (cartItems) {
+    setCartItems(cartItems);
+  }
+}, []);
+
+const ajouter = (produit) => {
+    const produitExistant = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const itemIndex = produitExistant.findIndex((item) => item.IdProduit === produit.IdProduit);
+  
+    if (itemIndex === -1) {
+      produitExistant.push({ ...produit, qty: 1 });
+    } else {
+      produitExistant[itemIndex].qty += 1;
+    }
+  
+    localStorage.setItem("cartItems", JSON.stringify(produitExistant));
+    setCartItems(produitExistant);
+  };
+
 return(
 <div className="LeProduit">
     <div className='produitContenue'>
@@ -45,7 +69,11 @@ return(
             <hr/>
             <hr/>
             <h3 className={Produits.StockProduit > 0 ? 'enStock' : 'pasDeStock'}>{Produits.StockProduit > 0 ? 'En Stock' : 'Pas de Stock'}</h3>
-            <Button variant={Produits.StockProduit > 0 ? "success" : "danger"} className='btnAchat'><b>{Produits.StockProduit > 0 ? 'Ajouter au panier' : 'Indisponible'} </b></Button>
+            {Produits.StockProduit > 0 ? (
+                  <Button variant="success" className='btnAchat' onClick={() => ajouter(Produits)} ><b>Ajouter au panier</b></Button>
+                ) : (
+                  <Button variant="danger" className='btnAchat' disabled><b>Indisponible</b></Button>
+                )}
         </div>
     </div>
 </div>
