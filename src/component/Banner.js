@@ -67,53 +67,53 @@ function Banner(){
         <Button variant="outline-primary">Rechercher</Button>
       </Form> <br/>
       <ResultRecherche searchQuery={searchQuery}/>
-        <Button variant="primary" className='btn-connexion'>
-          Connexion
-        </Button>
+      <Button variant="primary" className='btn-connexion' onClick={handleShow}>
+        Connexion
+      </Button>
 
-  <Modal show={show} onHide={handleClose}>
-    <Modal.Header closeButton>
-      <Modal.Title>Connexion</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-      <form onSubmit={Connecter}>
-        <Form.Group className="mb-3" controlId="mail">
-          <Form.Label>Adresse e-mail</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="adresse@mail.com"
-            autoFocus
-            name="email"
-          />
-        </Form.Group>
-        <Form.Group
-          controlId="mdp"
-          className="mb-3"
-        >
-          <Form.Label>Mot de passe:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="mot-de-passe"
-            name="mdp"
-          />
-        </Form.Group>
-        <Modal.Footer>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Connexion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form onSubmit={Connecter}>
+            <Form.Group className="mb-3" controlId="mail">
+              <Form.Label>Adresse e-mail</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="adresse@mail.com"
+                autoFocus
+                name="email"
+              />
+            </Form.Group>
+            <Form.Group
+              controlId="mdp"
+              className="mb-3"
+            >
+              <Form.Label>Mot de passe:</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="mot-de-passe"
+                name="mdp"
+              />
+            </Form.Group>
+            <Modal.Footer>
 
-        <Button variant="secondary" onClick={handleClose}>
-          <Link to='/Inscription'>
-            Inscription
-          </Link>
-        </Button>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" className='btn-connexion' type="submit">
-          Connexion
-        </Button>
-        </Modal.Footer>
-      </form>
-    </Modal.Body>
-  </Modal>    
+            <Button variant="secondary" onClick={handleClose}>
+              <Link to='/Inscription'>
+                Inscription
+              </Link>
+            </Button>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" className='btn-connexion' type="submit">
+              Connexion
+            </Button>
+            </Modal.Footer>
+          </form>
+        </Modal.Body>
+      </Modal>    
     </div>
 </div> 
 }

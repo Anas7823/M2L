@@ -39,6 +39,19 @@ function filterProduitsSquash() {
   return produits.filter(produit => produit.IdSport === 3);
 }
 
+// Fonction pour ajouter un produit
+const handleAddProduct = async (produit) => {
+  try {
+    await axios.put(`http://localhost:8000/addproduit/${produit.IdProduit}`);
+    // La requête a été envoyée avec succès, effectuez les actions supplémentaires si nécessaire
+    console.log('Produit ajouté avec succès');
+    console.log(produit.StockProduit); // renvoie undefined a voir pq
+  } catch (error) {
+    // Gérez les erreurs qui se produisent lors de l'envoi de la requête
+    console.error('Erreur lors de l\'ajout du produit :', error);
+  }
+};
+
 return (
   <>
     <div className="AdminProduct">
@@ -47,13 +60,16 @@ return (
       <CardGroup className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
             <div key={index}>
-              <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
+              <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
               <div>
                 {produit.NomProduit}
                 Coût: {produit.PrixProduit}   €
                 <br/>
+                Stock: {produit.StockProduit}
+                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
+                <br/>
                 <Button variant="danger"><b>-</b></Button>
-                <Button variant="primary"><b>+</b></Button>
+                <Button variant="primary" key={produit.IdProduit} onClick={handleAddProduct}><b>+</b></Button>
                 <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
               </div>
             </div>
@@ -64,7 +80,7 @@ return (
       <CardGroup className="lesProduits">
         {filterProduitsBasket().map((produit, index) => (
           <div key={index}>
-            <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
+            <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
               {produit.NomProduit}
               Coût: {produit.PrixProduit} €
@@ -81,7 +97,7 @@ return (
       <CardGroup className="lesProduits">
         {filterProduitsSquash().map((produit, index) => (
           <div key={index}>
-            <img src={bal} class='img-card' variant="top" style={{height: '50%'}}/>
+            <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
               {produit.NomProduit}
               Coût: {produit.PrixProduit} €
