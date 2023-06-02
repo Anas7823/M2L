@@ -40,12 +40,27 @@ function filterProduitsSquash() {
 }
 
 // Fonction pour ajouter un produit
-const handleAddProduct = async (produit) => {
+const AjouterProduit = async (produit) => {
   try {
-    await axios.put(`http://localhost:8000/addproduit/${produit.IdProduit}`);
+    const idProduit = produit.IdProduit; // Récupérer l'ID du produit
+    await axios.put(`http://localhost:8000/addproduit/${idProduit}`);
+    console.log("id:" + idProduit + " Stock:" + produit.StockProduit);
     // La requête a été envoyée avec succès, effectuez les actions supplémentaires si nécessaire
     console.log('Produit ajouté avec succès');
-    console.log(produit.StockProduit); // renvoie undefined a voir pq
+  } catch (error) {
+    // Gérez les erreurs qui se produisent lors de l'envoi de la requête
+    console.error('Erreur lors de l\'ajout du produit :', error);
+  }
+};
+
+// Fonction pour enlever UN produit
+const SoustraireProduit = async (produit) => {
+  try {
+    const idProduit = produit.IdProduit; // Récupérer l'ID du produit
+    await axios.put(`http://localhost:8000/substractproduit/${idProduit}`);
+    console.log("id:" + idProduit + " Ancien Stock:" + produit.StockProduit);
+    // La requête a été envoyée avec succès, effectuez les actions supplémentaires si nécessaire
+    console.log('Produit soustrait avec succès');
   } catch (error) {
     // Gérez les erreurs qui se produisent lors de l'envoi de la requête
     console.error('Erreur lors de l\'ajout du produit :', error);
@@ -68,8 +83,8 @@ return (
                 Stock: {produit.StockProduit}
                   <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
                 <br/>
-                <Button variant="danger"><b>-</b></Button>
-                <Button variant="primary" key={produit.IdProduit} onClick={handleAddProduct}><b>+</b></Button>
+                <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button>
+                <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
                 <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
               </div>
             </div>
@@ -84,6 +99,9 @@ return (
             <div>
               {produit.NomProduit}
               Coût: {produit.PrixProduit} €
+              <br/>
+              Stock: {produit.StockProduit}
+              <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
               <br/>
               <Button variant="danger"><b>-</b></Button>
               <Button variant="primary"><b>+</b></Button>
@@ -101,6 +119,9 @@ return (
             <div>
               {produit.NomProduit}
               Coût: {produit.PrixProduit} €
+              <br/>
+              Stock: {produit.StockProduit}
+              <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
               <br/>
               <Button variant="danger"><b>-</b></Button>
               <Button variant="primary"><b>+</b></Button>

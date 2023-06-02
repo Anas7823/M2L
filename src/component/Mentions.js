@@ -3,7 +3,7 @@ import '../style/Mentions.css';
 function Mentions(props){
     let theme= props.mode
     return <div className={`mentions ${theme}`}> 
-            <h1>Mentions légals</h1>
+            <h1>Mentions légales</h1>
             <br></br>
             <p>Le site Internet M2L est édité par la société M2L SARL, dont le numéro SIRET est le : 000 000 000 00000.</p>
             <h1>Autres informations</h1>
