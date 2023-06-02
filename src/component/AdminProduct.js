@@ -67,6 +67,20 @@ const SoustraireProduit = async (produit) => {
   }
 };
 
+// Fonction pour enlever UN produit
+const DelProduit = async (produit) => {
+  try {
+    const idProduit = produit.IdProduit; // Récupérer l'ID du produit
+    await axios.delete(`http://localhost:8000/delproduit/${idProduit}`);
+    console.log("id:" + idProduit + " Ancien Stock:" + produit.StockProduit);
+    // La requête a été envoyée avec succès, effectuez les actions supplémentaires si nécessaire
+    console.log('Produit supprimer avec succès');
+  } catch (error) {
+    // Gérez les erreurs qui se produisent lors de l'envoi de la requête
+    console.error('Erreur lors de l\'ajout du produit :', error);
+  }
+};
+
 return (
   <>
     <div className="AdminProduct">
@@ -83,9 +97,9 @@ return (
                 Stock: {produit.StockProduit}
                   <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
                 <br/>
-                <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button>
+                <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
                 <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
-                <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+                <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
               </div>
             </div>
           ))}            
@@ -103,9 +117,9 @@ return (
               Stock: {produit.StockProduit}
               <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
               <br/>
-              <Button variant="danger"><b>-</b></Button>
-              <Button variant="primary"><b>+</b></Button>
-              <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+              <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
+              <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
+              <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
             </div>
           </div>
         ))}            
@@ -123,10 +137,9 @@ return (
               Stock: {produit.StockProduit}
               <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
               <br/>
-              <Button variant="danger"><b>-</b></Button>
-              <Button variant="primary"><b>+</b></Button>
-              <Button variant="danger"><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
-            </div>
+              <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
+              <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
+              <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>            </div>
           </div>
           ))}
       </CardGroup>
