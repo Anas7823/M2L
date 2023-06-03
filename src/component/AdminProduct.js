@@ -39,6 +39,28 @@ function filterProduitsSquash() {
   return produits.filter(produit => produit.IdSport === 3);
 }
 
+// Fonction pour créer un produit
+const NewProduit = async (produit) => {
+  try {
+    await axios.post(`http://localhost:8000/produit`, produit);
+    // La requête a été envoyée avec succès, effectuez les actions supplémentaires si nécessaire
+    console.log('Produit créer avec succès');
+  } catch (error) {
+    // Gérez les erreurs qui se produisent lors de l'envoi de la requête
+    console.error('Erreur lors de la création du produit :', error);
+  }
+};
+const ValidNewProduit = (event) => {
+  const produit = {
+    nom: event.target.nom.value,
+    prix: event.target.prix.value,
+    stock: event.target.stock.value,
+    idSport: event.target.idSport.value,
+  };
+
+  NewProduit(produit);
+};
+
 // Fonction pour ajouter un produit
 const AjouterProduit = async (produit) => {
   try {
@@ -67,7 +89,7 @@ const SoustraireProduit = async (produit) => {
   }
 };
 
-// Fonction pour enlever UN produit
+// Fonction pour SUPPRIMER un produit
 const DelProduit = async (produit) => {
   try {
     const idProduit = produit.IdProduit; // Récupérer l'ID du produit
@@ -85,6 +107,30 @@ return (
   <>
     <div className="AdminProduct">
       <h1 style={{margin: "20px", marginBottom:"50px", fontFamily:"fantasy"}}>Administration des Produits</h1>    
+      
+      <div className="NewProduit">
+        <h1>Ajouter Nouveau un produit: </h1> <br/>
+        <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
+        <div>
+          <form onSubmit={ValidNewProduit}>
+            Nom: 
+            <input type="text" id="nom" placeholder="Nom du produit" name="nom"></input> 
+            <br/>
+            Coût: 
+            <input type="text" id="prix" placeholder="Prix du produit" name="prix"></input>
+            <br/>
+            Stock: 
+            <input type="text" id="stock" placeholder="Prix du produit" name="stock"></input>
+            <br/>
+            SportID: 
+            <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
+            <br/>
+            <Button variant="primary" type="submit"><b>Ajouter</b></Button>
+          </form>
+
+        </div>
+      </div>
+
       <h1  style={{marginBottom:"100px"}}>Produits de FootBall:</h1>
       <CardGroup className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
@@ -102,7 +148,7 @@ return (
                 <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
               </div>
             </div>
-          ))}            
+          ))}          
       </CardGroup>
 
       <h1 style={{marginBottom:"100px"}}>Produits de BasketBall:</h1>
