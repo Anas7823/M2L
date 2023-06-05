@@ -51,15 +51,40 @@ const NewProduit = async (produit) => {
   }
 };
 const ValidNewProduit = (event) => {
+  event.preventDefault(); // Empêcher le rechargement de la page
   const produit = {
     nom: event.target.nom.value,
     prix: event.target.prix.value,
     stock: event.target.stock.value,
     idSport: event.target.idSport.value,
   };
-
   NewProduit(produit);
 };
+
+// Fonction pour modifier un produit
+const ModifProduit = async (produit, event) => {
+  try {
+    const idProduit = produit.id;
+    axios.put(`http://localhost:8000/produit/${idProduit}`, produit);
+    console.log('Produit modifié avec succès');
+  } catch (error) {
+    console.error('Erreur lors de la modification du produit :', error);
+  }
+};
+
+const ValidModifProduit = (event) => {
+  event.preventDefault(); // Empêcher le rechargement de la page
+  // Construire un objet de données pour la requête avec seules les valeurs non vides
+  const data = {
+    id: event.target.id.value
+  };
+  data.nom = event.target.nom.value;
+  data.prix = event.target.prix.value;
+  data.stock = event.target.stock.value;
+  data.idSport = event.target.idSport.value;
+  ModifProduit(data);
+};
+
 
 // Fonction pour ajouter un produit
 const AjouterProduit = async (produit) => {
@@ -108,40 +133,67 @@ return (
     <div className="AdminProduct">
       <h1 style={{margin: "20px", marginBottom:"50px", fontFamily:"fantasy"}}>Administration des Produits</h1>    
       
-      <div className="NewProduit">
-        <h1>Ajouter Nouveau un produit: </h1> <br/>
-        <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
-        <div>
-          <form onSubmit={ValidNewProduit}>
-            Nom: 
-            <input type="text" id="nom" placeholder="Nom du produit" name="nom"></input> 
-            <br/>
-            Coût: 
-            <input type="text" id="prix" placeholder="Prix du produit" name="prix"></input>
-            <br/>
-            Stock: 
-            <input type="text" id="stock" placeholder="Prix du produit" name="stock"></input>
-            <br/>
-            SportID: 
-            <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
-            <br/>
-            <Button variant="primary" type="submit"><b>Ajouter</b></Button>
-          </form>
+      <div style={{display:"flex", justifyContent:"center"}}>
+        <div className="NewProduit" style={{height:"50vh"}}>
+          <h1>Ajouter un produit: </h1> <br/>
+          <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
+          <div>
+            <form onSubmit={ValidNewProduit}>
+              Nom: 
+              <input type="text" id="nom" placeholder="Nom du produit" name="nom"></input> 
+              <br/>
+              Coût: 
+              <input type="text" id="prix" placeholder="Prix du produit" name="prix"></input>
+              <br/>
+              Stock: 
+              <input type="text" id="stock" placeholder="Stock du produit" name="stock"></input>
+              <br/>
+              SportID: 
+              <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
+              <br/>
+              <Button variant="primary" type="submit"><b>Ajouter</b></Button>
+            </form>
 
+          </div>
+        </div>
+        
+        <div className="ModifProduit" style={{height:"50vh"}}>
+          <h1>Modifier un produit: </h1> <br/>
+          <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
+          <div>
+            <form onSubmit={ValidModifProduit}>
+              Id:
+              <input type="text" id="id" placeholder="id actuel" name="id"/> <br/>
+              Nom: 
+              <input type="text" id="nom" placeholder="Nouveau nom" name="nom"/> 
+              <br/>
+              Coût: 
+              <input type="text" id="prix" placeholder="Nouveau prix" name="prix"/>
+              <br/>
+              Stock: 
+              <input type="text" id="stock" placeholder="Nouveau stock" name="stock"/>
+              <br/>
+              SportID: 
+              <input type="text" id="idSport" placeholder="Id sport à remplacé" name="idSport"/>
+              <br/>
+              <Button variant="primary" type="submit"><b>Ajouter</b></Button>
+            </form>
+
+          </div>
         </div>
       </div>
 
-      <h1  style={{marginBottom:"100px"}}>Produits de FootBall:</h1>
+      <h1  style={{marginBottom:"100px"}}>Produits de FootBall: (id:1)</h1>
       <CardGroup className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
             <div key={index}>
               <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
               <div>
-                {produit.NomProduit}
+                {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
                 Coût: {produit.PrixProduit}   €
                 <br/>
                 Stock: {produit.StockProduit}
-                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
+                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit} readonly/>
                 <br/>
                 <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
                 <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
@@ -151,13 +203,13 @@ return (
           ))}          
       </CardGroup>
 
-      <h1 style={{marginBottom:"100px"}}>Produits de BasketBall:</h1>
+      <h1 style={{marginBottom:"100px"}}>Produits de BasketBall: (id:2)</h1>
       <CardGroup className="lesProduits">
         {filterProduitsBasket().map((produit, index) => (
           <div key={index}>
             <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
-              {produit.NomProduit}
+              {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
               Coût: {produit.PrixProduit} €
               <br/>
               Stock: {produit.StockProduit}
@@ -171,13 +223,13 @@ return (
         ))}            
       </CardGroup>
 
-      <h1 style={{marginBottom:"100px"}}>Produits de Squash:</h1>
+      <h1 style={{marginBottom:"100px"}}>Produits de Squash: (id:3)</h1>
       <CardGroup className="lesProduits">
         {filterProduitsSquash().map((produit, index) => (
           <div key={index}>
             <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
-              {produit.NomProduit}
+              {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
               Coût: {produit.PrixProduit} €
               <br/>
               Stock: {produit.StockProduit}
