@@ -51,7 +51,6 @@ const NewProduit = async (produit) => {
   }
 };
 const ValidNewProduit = (event) => {
-  event.preventDefault(); // Empêcher le rechargement de la page
   const produit = {
     nom: event.target.nom.value,
     prix: event.target.prix.value,
@@ -73,7 +72,6 @@ const ModifProduit = async (produit, event) => {
 };
 
 const ValidModifProduit = (event) => {
-  event.preventDefault(); // Empêcher le rechargement de la page
   // Construire un objet de données pour la requête avec seules les valeurs non vides
   const data = {
     id: event.target.id.value

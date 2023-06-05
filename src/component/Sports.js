@@ -80,6 +80,32 @@ const ajouter = (produit) => {
   setCartItems(produitExistant);
 };
 
+// trier des panier gérer ici
+
+const [triOption, setTriOption] = useState("");
+
+const [produitsTries, setProduitsTries] = useState([]);
+
+const trierParNom = () => {
+  const produitsTriés = [...Produits].sort((a, b) => {
+    return a.NomProduit.localeCompare(b.NomProduit);
+  });
+  setProduitsTries(produitsTriés);
+  setTriOption("nom");
+};
+
+const trierParPrix = () => {
+  const produitsTriés = [...Produits].sort((a, b) => {
+    return parseFloat(a.PrixProduit) - parseFloat(b.PrixProduit);
+  });
+  setProduitsTries(produitsTriés);
+  setTriOption("prix");
+};
+
+const trierParDefault = () => {
+  setTriOption("");
+};
+
 return (<div className="produit">
     <div className="titreProduit">
         <h1>Articles trier par sport :</h1>
@@ -124,26 +150,71 @@ return (<div className="produit">
         <h1>Listes de tout les articles :</h1>
     </div> 
     <div className="toutArticles">
+    <Button variant="" onClick={trierParNom} style={{margin:"0 2vh 2vh auto", outline:"1px solid"}}>Trier par nom</Button>
+    <Button variant="" onClick={trierParPrix} style={{margin:"0 2vh 2vh auto", outline:"1px solid"}}>Trier par prix</Button>
+    <Button variant="" onClick={trierParDefault} style={{margin:"0 2vh 2vh auto", outline:"1px solid"}}>Trier par défaut</Button>
       <div className="card-grid">
-        {Produits.map((produit, index) => (
+      {triOption === "nom" && produitsTries.length > 0 ? (
+        produitsTries.map((produit, index) => (
           <Card key={index}>
-            <Card.Img className='img-card' variant="top" src={ballonFoot} />
-            <Card.Body>
-              <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
-              <Card.Text style={{display:"flex"}}>
-                <h4 className="coutProduit" >Coût: {produit.PrixProduit} €</h4> 
-              </Card.Text>
-                <Link to={'/produit/' + produit.IdProduit}>
-                  <Button variant="primary"><b>Plus d'info</b></Button>
-                </Link>
-                {produit.StockProduit > 0 ? (
-                  <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
-                ) : (
-                  <Button variant="danger" className='btnAchatSports' disabled><b>Indisponible</b></Button>
-                )}
-            </Card.Body>
-          </Card>
-        ))}
+          <Card.Img className='img-card' variant="top" src={ballonFoot} />
+          <Card.Body>
+            <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
+            <Card.Text style={{display:"flex"}}>
+              <h4 className="coutProduit" >Coût: {produit.PrixProduit} €</h4> 
+            </Card.Text>
+              <Link to={'/produit/' + produit.IdProduit}>
+                <Button variant="primary"><b>Plus d'info</b></Button>
+              </Link>
+              {produit.StockProduit > 0 ? (
+                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
+              ) : (
+                <Button variant="danger" className='btnAchatSports' disabled><b>Indisponible</b></Button>
+              )}
+          </Card.Body>
+        </Card>
+        ))
+      ) : triOption === "prix" && produitsTries.length > 0 ? (
+        produitsTries.map((produit, index) => (
+          <Card key={index}>
+          <Card.Img className='img-card' variant="top" src={ballonFoot} />
+          <Card.Body>
+            <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
+            <Card.Text style={{display:"flex"}}>
+              <h4 className="coutProduit" >Coût: {produit.PrixProduit} €</h4> 
+            </Card.Text>
+              <Link to={'/produit/' + produit.IdProduit}>
+                <Button variant="primary"><b>Plus d'info</b></Button>
+              </Link>
+              {produit.StockProduit > 0 ? (
+                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
+              ) : (
+                <Button variant="danger" className='btnAchatSports' disabled><b>Indisponible</b></Button>
+              )}
+          </Card.Body>
+        </Card>
+        ))
+      ) : (
+        Produits.map((produit, index) => (
+          <Card key={index}>
+          <Card.Img className='img-card' variant="top" src={ballonFoot} />
+          <Card.Body>
+            <Card.Title className="cardTitle">{produit.NomProduit}</Card.Title>
+            <Card.Text style={{display:"flex"}}>
+              <h4 className="coutProduit" >Coût: {produit.PrixProduit} €</h4> 
+            </Card.Text>
+              <Link to={'/produit/' + produit.IdProduit}>
+                <Button variant="primary"><b>Plus d'info</b></Button>
+              </Link>
+              {produit.StockProduit > 0 ? (
+                <Button variant="success" className='btnAchatSports' onClick={() => ajouter(produit)}><b>Acheter</b></Button>
+              ) : (
+                <Button variant="danger" className='btnAchatSports' disabled><b>Indisponible</b></Button>
+              )}
+          </Card.Body>
+        </Card>
+        ))
+      )}
       </div>
     </div>
 </div>
