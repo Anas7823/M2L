@@ -108,7 +108,7 @@ const SoustraireProduit = async (produit) => {
     console.log('Produit soustrait avec succès');
   } catch (error) {
     // Gérez les erreurs qui se produisent lors de l'envoi de la requête
-    console.error('Erreur lors de l\'ajout du produit :', error);
+    console.error('Erreur lors de la soustration du produit :', error);
   }
 };
 
@@ -122,7 +122,7 @@ const DelProduit = async (produit) => {
     console.log('Produit supprimer avec succès');
   } catch (error) {
     // Gérez les erreurs qui se produisent lors de l'envoi de la requête
-    console.error('Erreur lors de l\'ajout du produit :', error);
+    console.error('Erreur lors de la suppression du produit :', error);
   }
 };
 
