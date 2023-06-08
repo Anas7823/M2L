@@ -51,7 +51,7 @@ return(
     <div className='produitContenue'>
         <div className='produitImage'>
             <div className='imagePrincipal'>
-                <img className="" src={sport}/>
+                <img className="" src={Produits.ImageProduit}/>
             </div>
             {/* <div className='sous-img'>
                 <img className='petiteImg' src={sport} alt=''/>

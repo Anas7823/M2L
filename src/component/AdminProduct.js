@@ -51,11 +51,13 @@ const NewProduit = async (produit) => {
   }
 };
 const ValidNewProduit = (event) => {
+  // event.preventDefault();  // Annuler le rechargement de la page
   const produit = {
     nom: event.target.nom.value,
     prix: event.target.prix.value,
     stock: event.target.stock.value,
     idSport: event.target.idSport.value,
+    img: event.target.img.value,
   };
   NewProduit(produit);
 };
@@ -72,6 +74,7 @@ const ModifProduit = async (produit, event) => {
 };
 
 const ValidModifProduit = (event) => {
+  // event.preventDefault(); // Annuler le rechargement de la page
   // Construire un objet de données pour la requête avec seules les valeurs non vides
   const data = {
     id: event.target.id.value
@@ -80,6 +83,7 @@ const ValidModifProduit = (event) => {
   data.prix = event.target.prix.value;
   data.stock = event.target.stock.value;
   data.idSport = event.target.idSport.value;
+  data.img = event.target.img.value;
   ModifProduit(data);
 };
 
@@ -149,6 +153,9 @@ return (
               SportID: 
               <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
               <br/>
+              Image: 
+              <input type="text" id="img" placeholder="lien de l'image du produit " name="img"></input>
+              <br/>
               <Button variant="primary" type="submit"><b>Ajouter</b></Button>
             </form>
 
@@ -174,6 +181,9 @@ return (
               SportID: 
               <input type="text" id="idSport" placeholder="Id sport à remplacé" name="idSport"/>
               <br/>
+              Image: 
+              <input type="text" id="img" placeholder="lien de l'image du produit" name="img"></input>
+              <br/>
               <Button variant="primary" type="submit"><b>Ajouter</b></Button>
             </form>
 
@@ -185,7 +195,7 @@ return (
       <CardGroup className="lesProduits">
           {filterProduitsFootball().map((produit, index) => (
             <div key={index}>
-              <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
+              <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
               <div>
                 {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
                 Coût: {produit.PrixProduit}   €
@@ -205,7 +215,7 @@ return (
       <CardGroup className="lesProduits">
         {filterProduitsBasket().map((produit, index) => (
           <div key={index}>
-            <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
+            <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
               {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
               Coût: {produit.PrixProduit} €
@@ -225,7 +235,7 @@ return (
       <CardGroup className="lesProduits">
         {filterProduitsSquash().map((produit, index) => (
           <div key={index}>
-            <img src={bal} className='img-card' variant="top" style={{height: '50%'}}/>
+            <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
             <div>
               {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
               Coût: {produit.PrixProduit} €

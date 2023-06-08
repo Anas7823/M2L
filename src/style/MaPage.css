@@ -1,0 +1,82 @@
+.MaPage {
+    align-items: center;
+    height: 80vh;
+    margin-bottom: 2rem;
+}
+
+.container {
+    width: 22vw !important;
+    margin-top: 2.5rem;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    min-height: 50vh;
+    padding: 2rem;
+}
+
+.mesInfos {
+    flex: 1;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.infos {
+    border: 1px solid #272838;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.infos input[type="text"] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    color: #030a6d;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.infos input[type="text"]:focus {
+    outline: none;
+}
+
+.infos input[type="submit"]{
+    border-radius: 20px;
+    border: none;
+    background: #272838;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.infos input[type="submit"]:hover{
+    background: #030c92;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.photo {
+    margin-top: 0px; 
+    margin-left: 25%;
+}.pseudo{
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90deg, rgba(113,114,140,1) 8%, rgba(235,148,134,1) 47%, rgba(243,222,138,1) 63%);
+    color: transparent;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+

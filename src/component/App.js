@@ -10,6 +10,7 @@ import AdminUser from './AdminUser';
 import AdminProduct from './AdminProduct.js';
 import Mentions from './Mentions';
 import LeProduit  from './LeProduit';
+import MaPage from './MaPage';
 
 import {
   Routes,
@@ -45,7 +46,7 @@ function App() {
         <Route path='/Panier' element={<Panier/>}>
         </Route>
         
-        <Route path='/Mon-compte'>
+        <Route path='/Mon-compte/:IdCompte' element= {<MaPage/>}>
         </Route>
         
         <Route path='/Inscription' element={<Inscription/>}>

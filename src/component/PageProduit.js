@@ -58,20 +58,17 @@ return (
         {Produits.map((produit) => (
             <div className="contenueProduit">
                 <div className="card p-3">
-                    <div className="d-flex justify-content-between align-items-center ">
-                        
-                                <div className="mt-2">
-                                        <h5 className="text-uppercase mb-0" id="nom" style={{position: "absolute", width:"50%"}}>{produit.NomProduit}</h5>
-                                    <div className="mt-5">
-                                        <br/>
-                                        <h1 className="main-heading mt-5" id="prix">{produit.PrixProduit}€</h1>
-                                    </div>
-                                </div>
-                            
-                            <div className="image">
-                                <img src={ballonFoot} width="150"/>
-                            </div>
-                            
+                    <div className="d-flex justify-content-between align-items-center "> 
+                      <div className="mt-2">
+                              <h5 className="text-uppercase mb-0" id="nom" style={{position: "absolute", width:"50%"}}>{produit.NomProduit}</h5>
+                          <div className="mt-5">
+                              <br/>
+                              <h1 className="main-heading mt-5" id="prix">{produit.PrixProduit}€</h1>
+                          </div>
+                      </div>
+                      <div className="image">
+                          <img src={produit.ImageProduit} style={{width:'150px'}}/>
+                      </div>    
                     </div>
                     <br/>
                     <br/>

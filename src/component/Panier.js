@@ -73,8 +73,8 @@ function Panier(){
       ) : (
         cartItems.map((produit) => (
           <div className='produitPanier'>
-            <div className='img' style={{backgroundImage: `url${produit.image}`}}>
-              <img src={produit.image}></img>
+            <div className='img' style={{backgroundImage: `url${produit.ImageProduit}`}}>
+              <img src={produit.ImageProduit}></img>
             </div>
             <div className='panierNomProduit'>
               <Link style={{textDecoration: "none", color: "black"}} to={'/produit/' + produit.IdProduit}>
