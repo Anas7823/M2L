@@ -8,11 +8,12 @@ import '../style/AdminProduit.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
 export default function AdminUser() {
-const [produits, setProduits] = useState([]);
+  const user = JSON.parse(localStorage.getItem('user'));
+  
+  const [produits, setProduits] = useState([]);
 
 async function getProduit() {
   let res = await axios.get('http://localhost:8000/sports')
@@ -130,126 +131,140 @@ const DelProduit = async (produit) => {
   }
 };
 
-return (
-  <>
-    <div className="AdminProduct">
-      <h1 style={{margin: "20px", marginBottom:"50px", fontFamily:"fantasy"}}>Administration des Produits</h1>    
-      
-      <div style={{display:"flex", justifyContent:"center"}}>
-        <div className="NewProduit" style={{height:"50vh"}}>
-          <h1>Ajouter un produit: </h1> <br/>
-          <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
-          <div>
-            <form onSubmit={ValidNewProduit}>
-              Nom: 
-              <input type="text" id="nom" placeholder="Nom du produit" name="nom"></input> 
-              <br/>
-              Coût: 
-              <input type="text" id="prix" placeholder="Prix du produit" name="prix"></input>
-              <br/>
-              Stock: 
-              <input type="text" id="stock" placeholder="Stock du produit" name="stock"></input>
-              <br/>
-              SportID: 
-              <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
-              <br/>
-              Image: 
-              <input type="text" id="img" placeholder="lien de l'image du produit " name="img"></input>
-              <br/>
-              <Button variant="primary" type="submit"><b>Ajouter</b></Button>
-            </form>
-
-          </div>
-        </div>
-        
-        <div className="ModifProduit" style={{height:"50vh"}}>
-          <h1>Modifier un produit: </h1> <br/>
-          <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
-          <div>
-            <form onSubmit={ValidModifProduit}>
-              Id:
-              <input type="text" id="id" placeholder="id actuel" name="id"/> <br/>
-              Nom: 
-              <input type="text" id="nom" placeholder="Nouveau nom" name="nom"/> 
-              <br/>
-              Coût: 
-              <input type="text" id="prix" placeholder="Nouveau prix" name="prix"/>
-              <br/>
-              Stock: 
-              <input type="text" id="stock" placeholder="Nouveau stock" name="stock"/>
-              <br/>
-              SportID: 
-              <input type="text" id="idSport" placeholder="Id sport à remplacé" name="idSport"/>
-              <br/>
-              Image: 
-              <input type="text" id="img" placeholder="lien de l'image du produit" name="img"></input>
-              <br/>
-              <Button variant="primary" type="submit"><b>Ajouter</b></Button>
-            </form>
-
-          </div>
-        </div>
+  // Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
+  if (!user.CompteAdmin == 1) {
+    // Rediriger l'utilisateur vers une autre page ou afficher un message d'erreur
+    return (
+      <div className="AdminProduct" style={{height:"100vh"}}>
+        Votre statut : {!user || user.CompteAdmin == 1 ? "Admin":"Client"} <br/>
+        <p>Vous n'êtes pas autorisé à accéder à cette page</p>
       </div>
-
-      <h1  style={{marginBottom:"100px"}}>Produits de FootBall: (id:1)</h1>
-      <CardGroup className="lesProduits">
-          {filterProduitsFootball().map((produit, index) => (
-            <div key={index}>
-              <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
+    );
+  }else{
+    return (
+      <>
+        <div className="AdminProduct">
+          <h1 style={{margin: "20px", marginBottom:"50px", fontFamily:"fantasy"}}>Administration des Produits</h1>    
+          
+          <div style={{display:"flex", justifyContent:"center"}}>
+            <div className="NewProduit" style={{height:"50vh"}}>
+              <h1>Ajouter un produit: </h1> <br/>
+              <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
               <div>
-                {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
-                Coût: {produit.PrixProduit}   €
-                <br/>
-                Stock: {produit.StockProduit}
-                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit} readonly/>
-                <br/>
-                <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
-                <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
-                <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+                <form onSubmit={ValidNewProduit}>
+                  Nom: 
+                  <input type="text" id="nom" placeholder="Nom du produit" name="nom"></input> 
+                  <br/>
+                  Coût: 
+                  <input type="text" id="prix" placeholder="Prix du produit" name="prix"></input>
+                  <br/>
+                  Stock: 
+                  <input type="text" id="stock" placeholder="Stock du produit" name="stock"></input>
+                  <br/>
+                  SportID: 
+                  <input type="text" id="idSport" placeholder="Id sport" name="idSport"></input>
+                  <br/>
+                  Image: 
+                  <input type="text" id="img" placeholder="lien de l'image du produit " name="img"></input>
+                  <br/>
+                  <Button variant="primary" type="submit"><b>Ajouter</b></Button>
+                </form>
+    
               </div>
             </div>
-          ))}          
-      </CardGroup>
-
-      <h1 style={{marginBottom:"100px"}}>Produits de BasketBall: (id:2)</h1>
-      <CardGroup className="lesProduits">
-        {filterProduitsBasket().map((produit, index) => (
-          <div key={index}>
-            <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
-            <div>
-              {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
-              Coût: {produit.PrixProduit} €
-              <br/>
-              Stock: {produit.StockProduit}
-              <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
-              <br/>
-              <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
-              <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
-              <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+            
+            <div className="ModifProduit" style={{height:"50vh"}}>
+              <h1>Modifier un produit: </h1> <br/>
+              <img src={bal} className='img-card' variant="top" style={{height: '100px', marginBottom:'20px'}}/>
+              <div>
+                <form onSubmit={ValidModifProduit}>
+                  Id:
+                  <input type="text" id="id" placeholder="id actuel" name="id"/> <br/>
+                  Nom: 
+                  <input type="text" id="nom" placeholder="Nouveau nom" name="nom"/> 
+                  <br/>
+                  Coût: 
+                  <input type="text" id="prix" placeholder="Nouveau prix" name="prix"/>
+                  <br/>
+                  Stock: 
+                  <input type="text" id="stock" placeholder="Nouveau stock" name="stock"/>
+                  <br/>
+                  SportID: 
+                  <input type="text" id="idSport" placeholder="Id sport à remplacé" name="idSport"/>
+                  <br/>
+                  Image: 
+                  <input type="text" id="img" placeholder="lien de l'image du produit" name="img"></input>
+                  <br/>
+                  <Button variant="primary" type="submit"><b>Ajouter</b></Button>
+                </form>
+    
+              </div>
             </div>
           </div>
-        ))}            
-      </CardGroup>
+    
+          <h1  style={{marginBottom:"100px"}}>Produits de FootBall: (id:1)</h1>
+          <CardGroup className="lesProduits">
+              {filterProduitsFootball().map((produit, index) => (
+                <div key={index}>
+                  <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
+                  <div>
+                    {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                    Coût: {produit.PrixProduit}   €
+                    <br/>
+                    Stock: {produit.StockProduit}
+                      <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit} readonly/>
+                    <br/>
+                    <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
+                    <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
+                    <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+                  </div>
+                </div>
+              ))}          
+          </CardGroup>
+    
+          <h1 style={{marginBottom:"100px"}}>Produits de BasketBall: (id:2)</h1>
+          <CardGroup className="lesProduits">
+            {filterProduitsBasket().map((produit, index) => (
+              <div key={index}>
+                <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
+                <div>
+                  {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  Coût: {produit.PrixProduit} €
+                  <br/>
+                  Stock: {produit.StockProduit}
+                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
+                  <br/>
+                  <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
+                  <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
+                  <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>
+                </div>
+              </div>
+            ))}            
+          </CardGroup>
+    
+          <h1 style={{marginBottom:"100px"}}>Produits de Squash: (id:3)</h1>
+          <CardGroup className="lesProduits">
+            {filterProduitsSquash().map((produit, index) => (
+              <div key={index}>
+                <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
+                <div>
+                  {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  Coût: {produit.PrixProduit} €
+                  <br/>
+                  Stock: {produit.StockProduit}
+                  <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
+                  <br/>
+                  <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
+                  <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
+                  <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>            </div>
+              </div>
+              ))}
+          </CardGroup>
+      </div>
+      </>
+    );
+    }
+    
+  }
 
-      <h1 style={{marginBottom:"100px"}}>Produits de Squash: (id:3)</h1>
-      <CardGroup className="lesProduits">
-        {filterProduitsSquash().map((produit, index) => (
-          <div key={index}>
-            <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
-            <div>
-              {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
-              Coût: {produit.PrixProduit} €
-              <br/>
-              Stock: {produit.StockProduit}
-              <input style={{display:"none"}} name="id" defaultValue ={produit.IdProduit}/>
-              <br/>
-              <Button variant="danger"  key={produit.IdProduit} onClick={() => SoustraireProduit(produit)}><b>-</b></Button> {/* Fonction fléchée permet d'avoir "produit" en paramètre */}
-              <Button variant="primary" key={produit.IdProduit} onClick={() => AjouterProduit(produit)}><b>+</b></Button>
-              <Button variant="danger"  key={produit.IdProduit} onClick={() => DelProduit(produit)}><b><img src={poubelle} style={{height: '15px'}}/></b></Button>            </div>
-          </div>
-          ))}
-      </CardGroup>
-  </div>
-  </>
-);
-}
+
