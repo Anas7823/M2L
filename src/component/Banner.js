@@ -51,7 +51,7 @@ function Banner(){
       const getUserInfo = async () => {
         try {
           const response = await axios.get('http://localhost:8000/utilisateur/' + userId); // Remplacez userId par l'ID de l'utilisateur connecté
-          const userData = response.data[0]; // Supposons que les informations de l'utilisateur sont renvoyées sous forme d'objet
+          const userData = response.data[0];
           console.log("userdata:", userData);
           setUser(userData);
           localStorage.setItem('user', JSON.stringify(userData)); // Enregistrer les informations de l'utilisateur dans le localStorage

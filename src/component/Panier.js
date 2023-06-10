@@ -66,6 +66,31 @@ function Panier(){
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  const [userInfo, setUserInfo] = useState(localStorage.getItem('userId')); // Récupérer l'ID de l'utilisateur depuis le localStorage 
+
+  useEffect((userI) => {
+    const userInfo = JSON.parse(localStorage.getItem("userId"));
+    if (userI) {
+      setUserInfo(userI);
+    }
+    console.log('info:', userInfo);
+  }, []);
+
+  // vide le panier a l'achat
+  const viderPanier = () => {
+    if(userInfo === null){
+      alert('Vous devez être connecté pour acheter !')
+    }else{
+      if(cartItems.length === 0){
+        alert('Le panier est vide !')
+      }
+      else{
+        setCartItems([]);
+        alert('Merci pour votre achat !')
+      }
+    }
+  };
+
   return (
     <div style={{minHeight: "80vh"}}>
       {cartItems.length === 0 ? (
@@ -116,7 +141,7 @@ function Panier(){
           <h3 className='prix-total'>Prix Total:{totalPrix}€
           </h3>
         </div>
-        <Button variant="success">Acheter</Button>
+        <Button variant="success" onClick={() => viderPanier()}>Acheter</Button>
       </div> 
 
     </div>
