@@ -208,7 +208,9 @@ const DelProduit = async (produit) => {
                 <div key={index}>
                   <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
                   <div>
+                    <Link to={`/produit/${produit.IdProduit}`}>
                     {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                    </Link>  
                     Coût: {produit.PrixProduit}   €
                     <br/>
                     Stock: {produit.StockProduit}
@@ -228,7 +230,9 @@ const DelProduit = async (produit) => {
               <div key={index}>
                 <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
                 <div>
-                  {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  <Link to={`/produit/${produit.IdProduit}`}>
+                    {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  </Link>
                   Coût: {produit.PrixProduit} €
                   <br/>
                   Stock: {produit.StockProduit}
@@ -248,7 +252,9 @@ const DelProduit = async (produit) => {
               <div key={index}>
                 <img src={produit.ImageProduit} className='img-card' variant="top" style={{height: '50%'}}/>
                 <div>
-                  {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  <Link to={`/produit/${produit.IdProduit}`}>
+                    {produit.NomProduit} (id:{produit.IdProduit} ) <br/>
+                  </Link>
                   Coût: {produit.PrixProduit} €
                   <br/>
                   Stock: {produit.StockProduit}
