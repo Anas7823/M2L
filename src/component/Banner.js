@@ -146,7 +146,7 @@ function Banner(){
       {user ? (
         <>
           <Link to={'/Mon-compte/' + user.IdCompte}>
-            <h4  style={{marginLeft:'9vw'}} className='elementNav'>{user.NomCompte} </h4>
+            <h4  style={user && user.CompteAdmin ? { marginLeft:'12vw' } : {marginLeft:'9vw' }} className='elementNav'>{user.NomCompte} </h4>
           </Link>
           <Button variant="danger" className='btn-deconnexion' onClick={Deconnexion}>
             Déconnexion
@@ -193,7 +193,7 @@ function Banner(){
               </Link>
             </Button>
             <Button variant="secondary" onClick={handleClose}>
-              Close
+              Fermer
             </Button>
             <Button variant="primary" className='btn-connexion' type="submit">
               Connexion

@@ -67,7 +67,7 @@ function MaPage() {
                             Modifier mon mot de passe:
                             <form onSubmit={ValidModifUser}>
                                 <input type="hidden" name="id" value={utilisateurs.IdCompte} />
-                                <input type="text" name="mdp" placeholder="Nouveau mot de passe" />
+                                <input type="password" name="mdp" placeholder="Nouveau mot de passe" />
                                 <input type="submit" value="Modifier" />
                                 <p style={{color:"green"}}>{modification ? "mot de passe modifié !" : ""}</p>
                             </form>

@@ -29,7 +29,7 @@
     padding: 10px;
 }
 
-.infos input[type="text"] {
+.infos input[type="password"] {
     border-top: none;
     border-left: none;
     border-right: none;
@@ -41,7 +41,7 @@
     margin-bottom: 1rem;
 }
 
-.infos input[type="text"]:focus {
+.infos input[type="password"]:focus {
     outline: none;
 }
 
